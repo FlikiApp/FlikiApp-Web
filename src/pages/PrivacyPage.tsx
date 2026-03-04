@@ -1,0 +1,76 @@
+import { motion } from 'framer-motion'
+import SectionWrapper from '../components/ui/SectionWrapper'
+import AnimatedSection from '../components/ui/AnimatedSection'
+import GradientText from '../components/ui/GradientText'
+
+export default function PrivacyPage() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+    >
+      <SectionWrapper>
+        <AnimatedSection>
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl font-extrabold mb-2">
+              <GradientText>Privacy Policy</GradientText>
+            </h1>
+            <p className="text-text-muted text-sm mb-10">Last updated: March 2026</p>
+
+            <div className="space-y-8 text-text-secondary leading-relaxed">
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">1. Information We Collect</h2>
+                <p>
+                  When you create an account, we collect your email address, display name, and profile information you choose to provide. We also collect data about your ranking activity, including comparisons made, rankings generated, and social interactions within the app.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">2. How We Use Your Information</h2>
+                <p>
+                  We use your information to provide and improve the Fliki service, personalize your experience, generate recommendations, and facilitate social features such as friend comparisons and discussions.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">3. Data Sharing</h2>
+                <p>
+                  We do not sell your personal information to third parties. We may share anonymized, aggregated data for analytics purposes. Your rankings and profile information are visible to other users according to your privacy settings.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">4. Data Security</h2>
+                <p>
+                  We implement industry-standard security measures to protect your personal information, including encryption in transit and at rest. However, no method of transmission over the internet is 100% secure.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">5. Your Rights</h2>
+                <p>
+                  You may access, update, or delete your account information at any time through the app settings. You may also request a complete export of your data or account deletion by contacting our support team.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">6. Cookies & Analytics</h2>
+                <p>
+                  Our website uses essential cookies for functionality. We use privacy-respecting analytics to understand how users interact with our service. You can opt out of non-essential tracking at any time.
+                </p>
+              </div>
+
+              <div>
+                <h2 className="text-xl font-semibold text-text-primary mb-3">7. Contact Us</h2>
+                <p>
+                  If you have questions about this privacy policy, please contact us at privacy@flikiapp.com.
+                </p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </SectionWrapper>
+    </motion.div>
+  )
+}
