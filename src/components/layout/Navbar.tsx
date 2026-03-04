@@ -10,8 +10,8 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-primary/80 backdrop-blur-lg border-b border-border-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border-subtle">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
@@ -24,9 +24,9 @@ export default function Navbar() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm font-medium transition-colors ${
+                className={`text-sm transition-colors ${
                   pathname === link.path
-                    ? 'text-fliki-cyan'
+                    ? 'text-text-primary font-medium'
                     : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
@@ -40,7 +40,7 @@ export default function Navbar() {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-fliki-cyan to-fliki-blue text-black px-4 py-2 rounded-lg text-sm font-semibold hover:scale-105 transition-transform"
+            className="hidden md:inline-flex items-center gap-1.5 bg-text-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-80 transition-opacity"
           >
             Download
           </a>
@@ -51,7 +51,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -60,11 +60,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-16 left-0 right-0 bg-surface-primary/95 backdrop-blur-lg border-b border-border-subtle"
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.15 }}
+            className="md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border-subtle"
           >
             <div className="flex flex-col items-center gap-6 py-8">
               {NAV_LINKS.map((link) => (
@@ -72,9 +72,9 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setMobileOpen(false)}
-                  className={`text-lg font-medium transition-colors ${
+                  className={`text-base transition-colors ${
                     pathname === link.path
-                      ? 'text-fliki-cyan'
+                      ? 'text-text-primary font-medium'
                       : 'text-text-secondary hover:text-text-primary'
                   }`}
                 >
@@ -85,7 +85,7 @@ export default function Navbar() {
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-gradient-to-r from-fliki-cyan to-fliki-blue text-black px-6 py-2.5 rounded-lg text-sm font-semibold"
+                className="bg-text-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium"
               >
                 Download
               </a>
