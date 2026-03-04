@@ -4,9 +4,7 @@ interface FlikiLogoProps {
 
 export default function FlikiLogo({ className = '' }: FlikiLogoProps) {
   return (
-    <span
-      className={`font-extrabold tracking-tight bg-gradient-to-r from-fliki-cyan via-fliki-blue to-fliki-purple bg-clip-text text-transparent ${className}`}
-    >
+    <span className={`font-serif font-bold tracking-tight text-text-primary ${className}`}>
       fliki
     </span>
   )
