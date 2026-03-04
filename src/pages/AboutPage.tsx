@@ -15,23 +15,25 @@ export default function AboutPage() {
       {/* Mission */}
       <SectionWrapper>
         <AnimatedSection>
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-6">
-              About <GradientText>Fliki</GradientText>
+          <div className="max-w-2xl">
+            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">About</p>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+              We believe star ratings are{' '}
+              <GradientText>broken</GradientText>
             </h1>
             <p className="text-text-secondary text-lg leading-relaxed">
-              We believe star ratings are broken. A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. Fliki replaces vague scores with a simple question: <em className="text-text-primary">which do you prefer?</em>
+              A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. Fliki replaces vague scores with a simple question: <em className="text-text-primary not-italic font-medium">which do you prefer?</em>
             </p>
           </div>
         </AnimatedSection>
       </SectionWrapper>
 
       {/* Story */}
-      <SectionWrapper className="bg-surface-secondary">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <SectionWrapper className="border-t border-border-subtle">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
           <AnimatedSection direction="left">
-            <h2 className="text-3xl font-bold mb-4">Our Story</h2>
-            <div className="space-y-4 text-text-secondary leading-relaxed">
+            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Our Story</p>
+            <div className="space-y-5 text-text-secondary leading-relaxed">
               <p>
                 Fliki started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
               </p>
@@ -45,26 +47,26 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <div className="bg-surface-card border border-border-subtle rounded-2xl p-8">
+            <div className="border border-border-subtle rounded-2xl p-8">
               <div className="text-center">
-                <div className="text-5xl font-extrabold mb-2">
-                  <GradientText>1 vs 1</GradientText>
+                <div className="text-5xl font-bold font-serif mb-2 text-text-primary">
+                  1 vs 1
                 </div>
-                <p className="text-text-secondary text-sm mb-6">
+                <p className="text-text-secondary text-sm mb-8">
                   One matchup at a time. That's all it takes.
                 </p>
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-3 gap-4 text-center border-t border-border-subtle pt-6">
                   <div>
-                    <div className="text-2xl font-bold text-text-primary">500K+</div>
-                    <div className="text-xs text-text-muted">Titles</div>
+                    <div className="text-xl font-bold text-text-primary">500K+</div>
+                    <div className="text-xs text-text-muted mt-1">Titles</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-text-primary">Elo</div>
-                    <div className="text-xs text-text-muted">Algorithm</div>
+                    <div className="text-xl font-bold text-text-primary">Elo</div>
+                    <div className="text-xs text-text-muted mt-1">Algorithm</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-text-primary">0</div>
-                    <div className="text-xs text-text-muted">Star Ratings</div>
+                    <div className="text-xl font-bold text-text-primary">0</div>
+                    <div className="text-xs text-text-muted mt-1">Star Ratings</div>
                   </div>
                 </div>
               </div>
@@ -74,24 +76,25 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Team */}
-      <SectionWrapper>
+      <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Meet the <GradientText>Team</GradientText>
+          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Team</p>
+          <h2 className="text-3xl font-bold tracking-tight mb-14">
+            The people behind <GradientText>Fliki</GradientText>
           </h2>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {TEAM_MEMBERS.map((member, i) => (
-            <AnimatedSection key={member.name} delay={i * 0.1}>
-              <div className="bg-surface-card border border-border-subtle rounded-2xl p-6 text-center hover:border-fliki-blue/40 transition-colors">
-                <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-fliki-cyan/20 to-fliki-purple/20 flex items-center justify-center mb-4">
-                  <span className="text-2xl font-bold text-fliki-cyan">
+            <AnimatedSection key={member.name} delay={i * 0.08}>
+              <div className="border-t border-border-subtle pt-6">
+                <div className="w-12 h-12 rounded-full bg-surface-secondary flex items-center justify-center mb-4">
+                  <span className="text-lg font-semibold text-text-secondary">
                     {member.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-lg font-semibold">{member.name}</h3>
-                <p className="text-fliki-cyan text-sm mb-3">{member.role}</p>
+                <h3 className="text-base font-semibold">{member.name}</h3>
+                <p className="text-accent text-sm mb-3">{member.role}</p>
                 <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
               </div>
             </AnimatedSection>
@@ -100,18 +103,19 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* Values */}
-      <SectionWrapper className="bg-surface-secondary">
+      <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <h2 className="text-3xl font-bold text-center mb-12">
-            What We <GradientText>Stand For</GradientText>
+          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Values</p>
+          <h2 className="text-3xl font-bold tracking-tight mb-14">
+            What we <GradientText>stand for</GradientText>
           </h2>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {VALUES.map((value, i) => (
-            <AnimatedSection key={value.title} delay={i * 0.1}>
-              <div className="bg-surface-card border border-border-subtle rounded-2xl p-6 hover:border-fliki-blue/40 transition-colors h-full">
-                <h3 className="text-lg font-semibold mb-2">{value.title}</h3>
+            <AnimatedSection key={value.title} delay={i * 0.08}>
+              <div className="border-t border-border-subtle pt-6 h-full">
+                <h3 className="text-base font-semibold mb-2">{value.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
               </div>
             </AnimatedSection>
@@ -120,19 +124,19 @@ export default function AboutPage() {
       </SectionWrapper>
 
       {/* CTA */}
-      <SectionWrapper>
-        <AnimatedSection>
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Join the <GradientText>Community</GradientText>
+      <section className="py-32 md:py-40 border-t border-border-subtle">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <AnimatedSection>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
+              Join the <GradientText>community</GradientText>
             </h2>
-            <p className="text-text-secondary text-lg max-w-xl mx-auto mb-10">
+            <p className="text-text-secondary text-lg max-w-md mx-auto mb-10">
               Download Fliki and start building your definitive ranking.
             </p>
             <AppStoreButton />
-          </div>
-        </AnimatedSection>
-      </SectionWrapper>
+          </AnimatedSection>
+        </div>
+      </section>
     </motion.div>
   )
 }
