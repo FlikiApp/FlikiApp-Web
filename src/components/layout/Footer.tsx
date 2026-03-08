@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           {/* Brand */}
           <div>
-            <FlikiLogo className="text-xl" />
+            <FlikiLogo className="h-6" />
             <p className="mt-2 text-text-muted text-sm">
               Rank movies & TV shows your way.
             </p>
