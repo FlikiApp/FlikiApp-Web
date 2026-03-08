@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
-            <FlikiLogo className="text-2xl" />
+            <FlikiLogo className="h-7" />
           </Link>
 
           {/* Desktop links */}
