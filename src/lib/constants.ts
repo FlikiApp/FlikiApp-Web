@@ -55,44 +55,37 @@ export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
 ]
 
 export interface Feature {
-  icon: LucideIcon
   title: string
   description: string
 }
 
 export const FEATURES: Feature[] = [
   {
-    icon: Trophy,
     title: 'Elo Rankings',
     description:
       'A battle-tested algorithm builds your rankings through simple head-to-head picks. More accurate than star ratings.',
   },
   {
-    icon: TrendingUp,
     title: 'Predictions',
     description:
       'Predict box-office outcomes, award winners, and more. Compete on leaderboards with other cinephiles.',
   },
   {
-    icon: Users,
     title: 'Social',
     description:
       'Follow friends, compare rankings side-by-side, and discover what your circle is watching.',
   },
   {
-    icon: MessageCircle,
     title: 'Discussions',
     description:
       'Debate spoiler-free or dive deep. Threaded conversations on every title.',
   },
   {
-    icon: Compass,
     title: 'Discovery',
     description:
       'Get personalized recommendations powered by your unique ranking profile — not generic algorithms.',
   },
   {
-    icon: Share2,
     title: 'Sharing',
     description:
       'Generate beautiful ranking cards and share your top picks across social media.',
