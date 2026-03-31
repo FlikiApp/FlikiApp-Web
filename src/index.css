@@ -1,6 +1,15 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Bebas Neue Pro";
+  src: url("./components/fonts/Bebas Neue Pro/Bebas Neue Pro Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
+  --font-display: "Bebas Neue Pro", ui-sans-serif, system-ui, sans-serif;
   --color-accent: #E8572A;
   --color-accent-light: #FFF0EB;
 
