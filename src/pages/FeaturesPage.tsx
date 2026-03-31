@@ -83,7 +83,7 @@ export default function FeaturesPage() {
               Experience every <GradientText>feature</GradientText>
             </h2>
             <p className="text-text-secondary text-lg max-w-md mx-auto mb-10">
-              Download Fliki and start ranking today.
+              Download SceneIt and start ranking today.
             </p>
             <AppStoreButton />
           </AnimatedSection>
