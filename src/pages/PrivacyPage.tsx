@@ -29,7 +29,7 @@ export default function PrivacyPage() {
               <div>
                 <h2 className="text-lg font-semibold text-text-primary mb-3">2. How We Use Your Information</h2>
                 <p>
-                  We use your information to provide and improve the Fliki service, personalize your experience, generate recommendations, and facilitate social features such as friend comparisons and discussions.
+                  We use your information to provide and improve the SceneIt service, personalize your experience, generate recommendations, and facilitate social features such as friend comparisons and discussions.
                 </p>
               </div>
 
