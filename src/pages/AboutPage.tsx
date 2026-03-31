@@ -22,7 +22,7 @@ export default function AboutPage() {
               <GradientText>broken</GradientText>
             </h1>
             <p className="text-text-secondary text-lg leading-relaxed">
-              A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. Fliki replaces vague scores with a simple question: <em className="text-text-primary not-italic font-medium">which do you prefer?</em>
+              A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. SceneIt replaces vague scores with a simple question: <em className="text-text-primary not-italic font-medium">which do you prefer?</em>
             </p>
           </div>
         </AnimatedSection>
@@ -35,13 +35,13 @@ export default function AboutPage() {
             <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Our Story</p>
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p>
-                Fliki started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
+                SceneIt started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
               </p>
               <p>
-                So we built an app that captures those gut-feeling decisions. Using an Elo system inspired by chess rankings, Fliki turns quick head-to-head picks into a precise, personal ranking of everything you've watched.
+                So we built an app that captures those gut-feeling decisions. Using an Elo system inspired by chess rankings, SceneIt turns quick head-to-head picks into a precise, personal ranking of everything you've watched.
               </p>
               <p>
-                Today, Fliki is a growing community of cinephiles who rank, compare, predict, and debate — all without the noise of a 10-point scale.
+                Today, SceneIt is a growing community of cinephiles who rank, compare, predict, and debate — all without the noise of a 10-point scale.
               </p>
             </div>
           </AnimatedSection>
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <AnimatedSection>
           <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Team</p>
           <h2 className="text-3xl font-bold tracking-tight mb-14">
-            The people behind <GradientText>Fliki</GradientText>
+            The people behind <GradientText>SceneIt</GradientText>
           </h2>
         </AnimatedSection>
 
@@ -131,7 +131,7 @@ export default function AboutPage() {
               Join the <GradientText>community</GradientText>
             </h2>
             <p className="text-text-secondary text-lg max-w-md mx-auto mb-10">
-              Download Fliki and start building your definitive ranking.
+              Download SceneIt and start building your definitive ranking.
             </p>
             <AppStoreButton />
           </AnimatedSection>
