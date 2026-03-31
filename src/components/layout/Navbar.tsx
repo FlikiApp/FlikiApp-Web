@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import SceneItLogo from '../icons/SceneItLogo'
+import FlikiLogo from '../icons/FlikiLogo'
 import { NAV_LINKS, APP_STORE_URL } from '../../lib/constants'
 
 export default function Navbar() {
@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
-            <SceneItLogo className="h-7" />
+            <FlikiLogo className="h-7" />
           </Link>
 
           {/* Desktop links */}
