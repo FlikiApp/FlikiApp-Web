@@ -97,7 +97,7 @@ export default function HomePage() {
               Ready to <GradientText>rank</GradientText>?
             </h2>
             <p className="text-text-secondary text-lg max-w-md mx-auto mb-10">
-              Join cinephiles who rank with precision. Download SceneIt and start comparing today.
+              Join cinephiles who rank with precision. Download Fliki and start comparing today.
             </p>
             <AppStoreButton />
           </AnimatedSection>
