@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import SceneItLogo from '../icons/SceneItLogo'
+import FlikiLogo from '../icons/FlikiLogo'
 import { FOOTER_PRODUCT_LINKS, FOOTER_LEGAL_LINKS } from '../../lib/constants'
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           {/* Brand */}
           <div>
-            <SceneItLogo className="h-6" />
+            <FlikiLogo className="h-6" />
             <p className="mt-2 text-text-muted text-sm">
               Rank movies & TV shows your way.
             </p>
@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-border-subtle">
           <p className="text-text-muted text-xs">
-            &copy; {new Date().getFullYear()} SceneIt. All rights reserved.
+            &copy; {new Date().getFullYear()} Fliki. All rights reserved.
           </p>
         </div>
       </div>
