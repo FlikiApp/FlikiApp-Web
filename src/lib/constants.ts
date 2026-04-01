@@ -20,6 +20,7 @@ export const NAV_LINKS = [
 export const FOOTER_PRODUCT_LINKS = [
   { label: 'Features', path: '/features' },
   { label: 'About', path: '/about' },
+  { label: 'Support', path: '/support' },
 ] as const
 
 export const FOOTER_LEGAL_LINKS = [
@@ -192,6 +193,44 @@ export const TEAM_MEMBERS = [
     bio: 'Full-stack builder with a passion for real-time systems. Watches three movies a week, minimum.',
   },
 ] as const
+
+export interface SupportFaq {
+  question: string
+  answer: string
+}
+
+export const SUPPORT_FAQS: SupportFaq[] = [
+  {
+    question: 'How does the ranking system work?',
+    answer:
+      'Fliki uses an Elo algorithm — the same system used in chess rankings. You compare two titles head-to-head, and the algorithm adjusts their scores based on your pick. The more comparisons you make, the more accurate your rankings become.',
+  },
+  {
+    question: 'Is Fliki free to use?',
+    answer:
+      'Yes, Fliki is free to download and use. We may introduce optional premium features in the future, but the core ranking experience will always be free.',
+  },
+  {
+    question: 'Can I delete my account and data?',
+    answer:
+      'Absolutely. You can request a complete data export or account deletion at any time by contacting support@flikiapp.com. We take privacy seriously.',
+  },
+  {
+    question: 'How do I report a bug?',
+    answer:
+      'Send us a description of the issue along with your device model and OS version to bugs@flikiapp.com. Screenshots or screen recordings help us fix things faster.',
+  },
+  {
+    question: 'Which platforms is Fliki available on?',
+    answer:
+      'Fliki is currently available on iOS. Android support is on our roadmap — stay tuned for updates.',
+  },
+  {
+    question: 'How are trending titles determined?',
+    answer:
+      'Trending charts are based on real engagement metrics across the Fliki community, updated daily. No paid placements or sponsored content.',
+  },
+]
 
 export const VALUES = [
   {
