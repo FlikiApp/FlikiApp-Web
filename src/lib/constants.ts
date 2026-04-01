@@ -3,7 +3,6 @@ import {
   TrendingUp,
   Users,
   Compass,
-  Share2,
   ArrowRightLeft,
   BarChart3,
   type LucideIcon,
@@ -36,21 +35,21 @@ export interface HowItWorksStep {
 export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
   {
     icon: ArrowRightLeft,
-    title: 'Compare',
+    title: 'Watch',
     description:
-      'Pick your winner in quick head-to-head matchups between movies and TV shows.',
+      'Watch your favorite movies and TV shows, then come back to rank them.',
   },
   {
     icon: BarChart3,
     title: 'Rank',
     description:
-      'Your choices build a personalized Elo ranking — no star ratings needed.',
+      'Rank what you\'ve watched through quick head-to-head comparisons.',
   },
   {
-    icon: Share2,
-    title: 'Share',
+    icon: Trophy,
+    title: 'Lead',
     description:
-      'Show off your rankings, compare with friends, and spark debates.',
+      'Climb the leaderboard by ranking more titles and see how you stack up against friends.',
   },
 ]
 
@@ -61,12 +60,12 @@ export interface Feature {
 
 export const FEATURES: Feature[] = [
   {
-    title: 'Elo Rankings',
+    title: 'Head-to-Head Rankings',
     description:
-      'A battle-tested algorithm builds your rankings through simple head-to-head picks. More accurate than star ratings.',
+      'Our algorithm builds your rankings through simple head-to-head picks. More accurate than star ratings.',
   },
   {
-    title: 'Predictions',
+    title: 'Predictions (Coming Soon)',
     description:
       'Predict box-office outcomes, award winners, and more. Compete on leaderboards with other cinephiles.',
   },
@@ -117,11 +116,11 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
   {
     icon: Trophy,
     title: 'Ranking System',
-    tagline: 'Elo-powered precision',
+    tagline: 'Algorithm-powered precision',
     description:
-      'Forget 5-star ratings. Our Elo algorithm learns your true preferences through quick head-to-head matchups.',
+      'Forget 5-star ratings. Our algorithm learns your true preferences through quick head-to-head matchups.',
     bullets: [
-      'Battle-tested Elo algorithm adapts to every choice',
+      'Smart algorithm adapts to every choice',
       'Rankings get sharper the more you compare',
       'Separate rankings for movies and TV shows',
       'Track how your rankings evolve over time',
@@ -134,7 +133,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     description:
       'Recommendations powered by your unique ranking profile, not generic popularity metrics.',
     bullets: [
-      'Personalized picks based on your Elo data',
+      'Personalized picks based on your ranking data',
       'Explore curated collections and trending titles',
       'Filter by genre, decade, streaming platform',
       'Watchlist synced across your devices',
@@ -171,7 +170,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
 export const STATS = [
   { value: '99.7%', label: 'Ranking Precision' },
   { value: '500K+', label: 'Movies & Shows' },
-  { value: 'Elo', label: 'Comparison Engine' },
+  { value: '1v1', label: 'Comparison Engine' },
   { value: '100%', label: 'Social' },
 ] as const
 
@@ -202,7 +201,7 @@ export const SUPPORT_FAQS: SupportFaq[] = [
   {
     question: 'How does the ranking system work?',
     answer:
-      'Fliki uses an Elo algorithm — the same system used in chess rankings. You compare two titles head-to-head, and the algorithm adjusts their scores based on your pick. The more comparisons you make, the more accurate your rankings become.',
+      'Fliki uses a proprietary algorithm powered by head-to-head comparisons to build your rankings. You pick your winner between two titles, and the algorithm adjusts their scores based on your choice. The more comparisons you make, the more accurate your rankings become.',
   },
   {
     question: 'Is Fliki free to use?',
