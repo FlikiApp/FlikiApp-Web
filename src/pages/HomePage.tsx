@@ -5,7 +5,7 @@ import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
 import PhoneMockup from '../components/ui/PhoneMockup'
-import compareScreenshot from '../components/screenshots/compare.png'
+import homeScreenshot from '../components/screenshots/home.png'
 import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
 
 export default function HomePage() {
@@ -42,7 +42,7 @@ export default function HomePage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex justify-center lg:justify-end"
             >
-              <PhoneMockup screenshot={compareScreenshot} />
+              <PhoneMockup screenshot={homeScreenshot} />
             </motion.div>
           </div>
         </div>
