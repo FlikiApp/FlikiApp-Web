@@ -65,14 +65,14 @@ export const FEATURES: Feature[] = [
       'Our algorithm builds your rankings through simple head-to-head picks. More accurate than star ratings.',
   },
   {
-    title: 'Predictions (Coming Soon)',
+    title: 'Leaderboard',
     description:
-      'Predict box-office outcomes, award winners, and more. Compete on leaderboards with other cinephiles.',
+      'Rank more titles to climb the leaderboard. See how you stack up against friends and the wider community.',
   },
   {
     title: 'Social',
     description:
-      'Follow friends, compare rankings side-by-side, and discover what your circle is watching.',
+      'Follow friends to see their rankings, explore their watchlists, and find your next watch through people you trust.',
   },
   {
     title: 'Discussions',
