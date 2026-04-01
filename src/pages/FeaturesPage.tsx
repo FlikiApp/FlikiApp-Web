@@ -7,6 +7,18 @@ import PhoneMockup from '../components/ui/PhoneMockup'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import { DETAILED_FEATURES } from '../lib/constants'
 
+import rankScreenshot from '../components/screenshots/rank.png'
+import homeScreenshot from '../components/screenshots/home.png'
+import recommendationsScreenshot from '../components/screenshots/recommendations.png'
+import leaderboardScreenshot from '../components/screenshots/leaderboard.png'
+const FEATURE_SCREENSHOTS: (string | null)[] = [
+  homeScreenshot,
+  rankScreenshot,
+  recommendationsScreenshot,
+  leaderboardScreenshot,
+  null,
+]
+
 export default function FeaturesPage() {
   return (
     <motion.div
@@ -68,7 +80,7 @@ export default function FeaturesPage() {
                 direction={isReversed ? 'left' : 'right'}
                 className={isReversed ? 'lg:order-1' : ''}
               >
-                <PhoneMockup />
+                <PhoneMockup screenshot={FEATURE_SCREENSHOTS[i] ?? undefined} comingSoon={!FEATURE_SCREENSHOTS[i]} />
               </AnimatedSection>
             </div>
           </SectionWrapper>
