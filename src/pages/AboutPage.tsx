@@ -4,6 +4,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import { TEAM_MEMBERS, VALUES } from '../lib/constants'
+import memeImage from '../components/screenshots/meme.png'
 
 export default function AboutPage() {
   return (
@@ -14,18 +15,28 @@ export default function AboutPage() {
     >
       {/* Mission */}
       <SectionWrapper>
-        <AnimatedSection>
-          <div className="max-w-2xl">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">About</p>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
-              We believe star ratings are{' '}
-              <GradientText>broken</GradientText>
-            </h1>
-            <p className="text-text-secondary text-lg leading-relaxed">
-              A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. Fliki replaces vague scores with a simple question: <em className="text-text-primary not-italic font-medium">which do you prefer?</em>
-            </p>
-          </div>
-        </AnimatedSection>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <AnimatedSection direction="left">
+            <div>
+              <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">About</p>
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+                We believe star ratings are{' '}
+                <GradientText>broken</GradientText>
+              </h1>
+              <p className="text-text-secondary text-lg leading-relaxed">
+                A 4-star movie tells you nothing about whether you'd pick it over your all-time favorite. Fliki replaces vague scores with a simple question: <em className="text-text-primary not-italic font-medium">which do you prefer?</em>
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection direction="right">
+            <img
+              src={memeImage}
+              alt="Fake cinephile vs true cinephile meme"
+              className="rounded-2xl w-full"
+            />
+          </AnimatedSection>
+        </div>
       </SectionWrapper>
 
       {/* Story */}
