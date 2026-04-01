@@ -2,7 +2,6 @@ import {
   Trophy,
   TrendingUp,
   Users,
-  MessageCircle,
   Compass,
   Share2,
   ArrowRightLeft,
@@ -103,19 +102,6 @@ export interface DetailedFeature {
 
 export const DETAILED_FEATURES: DetailedFeature[] = [
   {
-    icon: Trophy,
-    title: 'Ranking System',
-    tagline: 'Elo-powered precision',
-    description:
-      'Forget 5-star ratings. Our Elo algorithm learns your true preferences through quick head-to-head matchups.',
-    bullets: [
-      'Battle-tested Elo algorithm adapts to every choice',
-      'Rankings get sharper the more you compare',
-      'Separate rankings for movies and TV shows',
-      'Track how your rankings evolve over time',
-    ],
-  },
-  {
     icon: Users,
     title: 'Social',
     tagline: 'Rankings are better together',
@@ -126,6 +112,19 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
       'Follow cinephiles with similar (or wildly different) taste',
       'Activity feed shows what your circle is ranking',
       'Compatibility scores between you and friends',
+    ],
+  },
+  {
+    icon: Trophy,
+    title: 'Ranking System',
+    tagline: 'Elo-powered precision',
+    description:
+      'Forget 5-star ratings. Our Elo algorithm learns your true preferences through quick head-to-head matchups.',
+    bullets: [
+      'Battle-tested Elo algorithm adapts to every choice',
+      'Rankings get sharper the more you compare',
+      'Separate rankings for movies and TV shows',
+      'Track how your rankings evolve over time',
     ],
   },
   {
@@ -142,24 +141,24 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     ],
   },
   {
-    icon: MessageCircle,
-    title: 'Discussions',
-    tagline: 'Every title deserves a conversation',
+    icon: Trophy,
+    title: 'Leaderboard',
+    tagline: 'See who ranks the most',
     description:
-      'Threaded discussions on every movie and show. Go spoiler-free or deep dive — your choice.',
+      'Compete with friends and the community. The more you rank, the higher you climb on the leaderboard.',
     bullets: [
-      'Spoiler-free and spoiler zones per title',
-      'Threaded conversations with upvotes',
-      'Pin your hot takes to your profile',
-      'Reply notifications keep you in the loop',
+      'Global and friend-group leaderboards',
+      'Climb the ranks by ranking more titles',
+      'See how you stack up against other cinephiles',
+      'Track your ranking activity over time',
     ],
   },
   {
     icon: TrendingUp,
     title: 'Predictions',
-    tagline: 'Put your knowledge to the test',
+    tagline: 'Coming soon',
     description:
-      'Predict award winners, box-office hits, and more. Climb the leaderboard and prove you know film.',
+      'Predict award winners, box-office hits, and more. Climb the leaderboard and prove you know film. Coming soon.',
     bullets: [
       'Predict Oscars, Emmys, and box-office results',
       'Earn points for correct predictions',
