@@ -38,7 +38,7 @@ export default function AboutPage() {
                 Fliki started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
               </p>
               <p>
-                So we built an app that captures those gut-feeling decisions. Using an Elo system inspired by chess rankings, Fliki turns quick head-to-head picks into a precise, personal ranking of everything you've watched.
+                So we built an app that captures those gut-feeling decisions. Fliki turns quick head-to-head picks into a precise, personal ranking of everything you've watched.
               </p>
               <p>
                 Today, Fliki is a growing community of cinephiles who rank, compare, predict, and debate — all without the noise of a 10-point scale.
@@ -61,7 +61,7 @@ export default function AboutPage() {
                     <div className="text-xs text-text-muted mt-1">Titles</div>
                   </div>
                   <div>
-                    <div className="text-xl font-bold text-text-primary">Elo</div>
+                    <div className="text-xl font-bold text-text-primary">1v1</div>
                     <div className="text-xs text-text-muted mt-1">Algorithm</div>
                   </div>
                   <div>
