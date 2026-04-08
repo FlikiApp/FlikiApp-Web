@@ -15,6 +15,7 @@ import leaderboardScreenshot from '../components/screenshots/leaderboard.png'
 const FEATURE_SCREENSHOTS: (string | null)[] = [
   homeScreenshot,
   rankScreenshot,
+  discoverScreenshot,
   recommendationsScreenshot,
   leaderboardScreenshot,
   null,
