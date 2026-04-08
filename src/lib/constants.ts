@@ -3,6 +3,7 @@ import {
   TrendingUp,
   Users,
   Compass,
+  Film,
   ArrowRightLeft,
   BarChart3,
   type LucideIcon,
