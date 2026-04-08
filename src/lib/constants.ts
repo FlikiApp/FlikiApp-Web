@@ -129,7 +129,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
   {
     icon: Compass,
     title: 'Custom Recommendations',
-    tagline: 'Tailored to your taste',
+    tagline: 'Built around how you watch',
     description:
       'Recommendations customized to you — built from your rankings, watchlist, and genre interests for picks that actually match how you watch.',
     bullets: [
