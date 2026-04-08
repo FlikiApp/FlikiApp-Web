@@ -136,7 +136,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
       'Personalized picks driven by your ranking history',
       'Recommendations shaped by your watchlist activity',
       'Genre interest analysis refines suggestions over time',
-      'Watchlist synced across your devices',
+      'No two users see the same recommendations',
     ],
   },
   {
