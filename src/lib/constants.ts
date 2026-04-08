@@ -80,7 +80,7 @@ export const FEATURES: Feature[] = [
       'Debate spoiler-free or dive deep. Threaded conversations on every title.',
   },
   {
-    title: 'Discovery',
+    title: 'Custom Recommendations',
     description:
       'Get personalized recommendations powered by your unique ranking profile — not generic algorithms.',
   },
@@ -128,7 +128,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
   },
   {
     icon: Compass,
-    title: 'Discovery',
+    title: 'Custom Recommendations',
     tagline: 'Find your next favorite',
     description:
       'Recommendations powered by your unique ranking profile, not generic popularity metrics.',
