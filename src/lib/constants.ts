@@ -81,6 +81,11 @@ export const FEATURES: Feature[] = [
       'Debate spoiler-free or dive deep. Threaded conversations on every title.',
   },
   {
+    title: 'Discover',
+    description:
+      'Browse what\u2019s now in theaters and top picks from Netflix, Disney+, Amazon Prime Video, and other streaming services.',
+  },
+  {
     title: 'Custom Recommendations',
     description:
       'Tailored suggestions based on your rankings, watchlist, and genre interests — unique to you, not generic algorithms.',
