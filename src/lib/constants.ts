@@ -131,7 +131,8 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     icon: Film,
     title: 'Discover',
     tagline: 'See what\u2019s playing everywhere',
-    description: '',
+    description:
+      'Browse what\u2019s now in theaters and the top movies across Netflix, Disney+, Amazon Prime Video, and more.',
     bullets: [],
   },
   {
