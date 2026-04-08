@@ -131,7 +131,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     title: 'Custom Recommendations',
     tagline: 'Tailored to your taste',
     description:
-      'Recommendations powered by your unique ranking profile, not generic popularity metrics.',
+      'Recommendations customized to you — built from your rankings, watchlist, and genre interests for suggestions that actually match how you watch.',
     bullets: [
       'Personalized picks based on your ranking data',
       'Explore curated collections and trending titles',
