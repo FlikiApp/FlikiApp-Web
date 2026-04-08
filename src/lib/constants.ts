@@ -135,6 +135,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
       'Browse what\u2019s now in theaters and the top movies across Netflix, Disney+, Amazon Prime Video, and more — each with a Fliki Score so you know what\u2019s worth watching.',
     bullets: [
       'Now in Theaters section with current box office releases',
+      'Top 10 lists from Netflix, Disney+, Amazon Prime Video, and more',
     ],
   },
   {
