@@ -82,7 +82,7 @@ export const FEATURES: Feature[] = [
   {
     title: 'Custom Recommendations',
     description:
-      'Get tailored suggestions based on your rankings and watchlist — not generic algorithms.',
+      'Get tailored suggestions based on your rankings, watchlist, and genre interests — not generic algorithms.',
   },
   {
     title: 'Sharing',
