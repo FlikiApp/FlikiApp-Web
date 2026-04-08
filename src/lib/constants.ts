@@ -133,7 +133,9 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     tagline: 'See what\u2019s playing everywhere',
     description:
       'Browse what\u2019s now in theaters and the top movies across Netflix, Disney+, Amazon Prime Video, and more — each with a Fliki Score so you know what\u2019s worth watching.',
-    bullets: [],
+    bullets: [
+      'Now in Theaters section with current box office releases',
+    ],
   },
   {
     icon: Compass,
