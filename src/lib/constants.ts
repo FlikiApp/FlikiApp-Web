@@ -135,7 +135,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     bullets: [
       'Suggestions driven by your personal ranking history',
       'Picks shaped by what you add to your watchlist',
-      'Genre interest analysis refines suggestions over time',
+      'Genre preferences refine your suggestions over time',
       'No two users see the same recommendations',
     ],
   },
