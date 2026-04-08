@@ -128,6 +128,13 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     ],
   },
   {
+    icon: Film,
+    title: 'Discover',
+    tagline: '',
+    description: '',
+    bullets: [],
+  },
+  {
     icon: Compass,
     title: 'Custom Recommendations',
     tagline: 'Built around how you watch',
