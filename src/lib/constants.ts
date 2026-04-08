@@ -134,7 +134,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
       'Recommendations customized to you — built from your rankings, watchlist, and genre interests for picks that actually match how you watch.',
     bullets: [
       'Suggestions driven by your personal ranking history',
-      'Recommendations shaped by your watchlist activity',
+      'Picks shaped by what you add to your watchlist',
       'Genre interest analysis refines suggestions over time',
       'No two users see the same recommendations',
     ],
