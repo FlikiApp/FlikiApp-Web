@@ -10,6 +10,7 @@ import { DETAILED_FEATURES } from '../lib/constants'
 import rankScreenshot from '../components/screenshots/rank.png'
 import homeScreenshot from '../components/screenshots/home.png'
 import recommendationsScreenshot from '../components/screenshots/recommendations.png'
+import discoverScreenshot from '../components/screenshots/discover.png'
 import leaderboardScreenshot from '../components/screenshots/leaderboard.png'
 const FEATURE_SCREENSHOTS: (string | null)[] = [
   homeScreenshot,
