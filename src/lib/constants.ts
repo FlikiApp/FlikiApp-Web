@@ -136,7 +136,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
       'Suggestions driven by your personal ranking history',
       'Picks shaped by what you add to your watchlist',
       'Genre preferences refine your suggestions over time',
-      'No two users see the same recommendations',
+      'Every user gets a completely unique recommendation feed',
     ],
   },
   {
