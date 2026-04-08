@@ -82,7 +82,7 @@ export const FEATURES: Feature[] = [
   {
     title: 'Custom Recommendations',
     description:
-      'Get personalized recommendations powered by your unique ranking profile — not generic algorithms.',
+      'Get tailored suggestions based by your unique ranking profile — not generic algorithms.',
   },
   {
     title: 'Sharing',
