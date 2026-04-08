@@ -136,6 +136,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
     bullets: [
       'Now in Theaters section with current box office releases',
       'Top 10 lists from Netflix, Disney+, Amazon Prime Video, and more',
+      'Every title shows its Fliki Score at a glance',
     ],
   },
   {
