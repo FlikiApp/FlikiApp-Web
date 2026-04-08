@@ -130,7 +130,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
   {
     icon: Film,
     title: 'Discover',
-    tagline: '',
+    tagline: 'See what\u2019s playing everywhere',
     description: '',
     bullets: [],
   },
