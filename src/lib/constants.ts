@@ -129,7 +129,7 @@ export const DETAILED_FEATURES: DetailedFeature[] = [
   {
     icon: Compass,
     title: 'Custom Recommendations',
-    tagline: 'Find your next favorite',
+    tagline: 'Tailored to your taste',
     description:
       'Recommendations powered by your unique ranking profile, not generic popularity metrics.',
     bullets: [
