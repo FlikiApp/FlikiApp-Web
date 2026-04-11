@@ -9,7 +9,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 
-export const APP_STORE_URL = '#' // Replace with real App Store link
+export const APP_STORE_URL = 'https://apps.apple.com/app/fliki/id6760435711'
 
 export const NAV_LINKS = [
   { label: 'Features', path: '/features' },
