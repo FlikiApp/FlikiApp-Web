@@ -197,12 +197,12 @@ export const TEAM_MEMBERS = [
   {
     name: 'Anonymous Kimchi',
     role: 'Co-Founder',
-    bio: 'Film nerd and algorithm enthusiast. Previously built recommendation systems at a major streaming platform.',
+    bio: 'Software engineer who loves watching movies and TV series but almost never finishes them. Constantly loses track of what episode he\u2019s on — so he built a better way to track it all.',
   },
   {
     name: 'Anonymous Curry',
     role: 'Co-Founder',
-    bio: 'Full-stack builder with a passion for real-time systems. Watches three movies a week, minimum.',
+    bio: 'Software engineer whose first purchase after landing his first job was a 75-inch OLED TV, full Dolby-grade speakers, and a complete lighting system for his one-bedroom. Spends every evening on Netflix with his cat, hosts movie nights for friends, and is the one who came up with the idea for Fliki.',
   },
 ] as const
 
