@@ -195,18 +195,13 @@ export const STATS = [
 
 export const TEAM_MEMBERS = [
   {
-    name: 'Alex Chen',
-    role: 'Founder & CEO',
+    name: 'Anonymous Kimchi',
+    role: 'Co-Founder',
     bio: 'Film nerd and algorithm enthusiast. Previously built recommendation systems at a major streaming platform.',
   },
   {
-    name: 'Jordan Park',
-    role: 'Lead Designer',
-    bio: 'Obsessed with crafting delightful mobile experiences. Believes great design is invisible.',
-  },
-  {
-    name: 'Sam Rivera',
-    role: 'Head of Engineering',
+    name: 'Anonymous Curry',
+    role: 'Co-Founder',
     bio: 'Full-stack builder with a passion for real-time systems. Watches three movies a week, minimum.',
   },
 ] as const
