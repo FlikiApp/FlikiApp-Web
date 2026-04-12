@@ -95,7 +95,7 @@ export default function AboutPage() {
           </h2>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {TEAM_MEMBERS.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.08}>
               <div className="border-t border-border-subtle pt-6">
