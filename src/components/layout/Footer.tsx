@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 import FlikiLogo from '../icons/FlikiLogo'
 import { FOOTER_PRODUCT_LINKS, FOOTER_LEGAL_LINKS } from '../../lib/constants'
 
