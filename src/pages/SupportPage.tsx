@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
@@ -11,6 +12,11 @@ export default function SupportPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      <Seo
+        title="Support — Fliki"
+        description="Answers to common questions about Fliki, plus how to contact support."
+        path="/support"
+      />
       {/* Header */}
       <SectionWrapper>
         <AnimatedSection>
