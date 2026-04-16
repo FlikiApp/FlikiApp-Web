@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
+import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
@@ -28,6 +29,11 @@ export default function FeaturesPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      <Seo
+        title="Features — Fliki"
+        description="Head-to-head ranking, social leaderboards, discovery across streaming services, and custom recommendations built around how you watch."
+        path="/features"
+      />
       {/* Page header */}
       <SectionWrapper>
         <AnimatedSection>
