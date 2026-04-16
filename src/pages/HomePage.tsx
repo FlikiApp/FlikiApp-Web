@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
+import StructuredData from '../components/StructuredData'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
@@ -20,6 +21,20 @@ export default function HomePage() {
         title="Fliki — Rank Movies & TV Shows Your Way"
         description="Ditch star ratings. Use head-to-head comparisons to build personal movie and TV rankings that reflect your taste."
         path="/"
+      />
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'SoftwareApplication',
+          name: 'Fliki',
+          description:
+            'Rank movies and TV shows with head-to-head comparisons and share your rankings with friends.',
+          applicationCategory: 'EntertainmentApplication',
+          operatingSystem: 'iOS',
+          offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+          url: 'https://flikiapp.com',
+          downloadUrl: 'https://apps.apple.com/app/fliki/id6760435711',
+        }}
       />
       {/* Hero */}
       <section className="min-h-[calc(100vh-4rem)] flex items-center">
