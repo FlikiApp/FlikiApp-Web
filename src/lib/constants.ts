@@ -10,6 +10,7 @@ import {
 } from 'lucide-react'
 
 export const APP_STORE_URL = 'https://apps.apple.com/app/fliki/id6760435711'
+export const INSTAGRAM_URL = 'https://www.instagram.com/flikiapp/'
 
 export const NAV_LINKS = [
   { label: 'Features', path: '/features' },

@@ -1,6 +1,11 @@
 import { Link } from 'react-router'
+import { Instagram } from 'lucide-react'
 import FlikiLogo from '../icons/FlikiLogo'
-import { FOOTER_PRODUCT_LINKS, FOOTER_LEGAL_LINKS } from '../../lib/constants'
+import {
+  FOOTER_PRODUCT_LINKS,
+  FOOTER_LEGAL_LINKS,
+  INSTAGRAM_URL,
+} from '../../lib/constants'
 
 export default function Footer() {
   return (
@@ -39,10 +44,19 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-border-subtle">
+        <div className="mt-8 pt-6 border-t border-border-subtle flex items-center justify-between gap-4">
           <p className="text-text-muted text-xs">
             &copy; {new Date().getFullYear()} Fliki. All rights reserved.
           </p>
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Fliki on Instagram"
+            className="text-text-secondary hover:text-text-primary transition-colors"
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
         </div>
       </div>
     </footer>
