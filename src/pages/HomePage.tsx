@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
@@ -15,6 +16,11 @@ export default function HomePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      <Seo
+        title="Fliki — Rank Movies & TV Shows Your Way"
+        description="Ditch star ratings. Use head-to-head comparisons to build personal movie and TV rankings that reflect your taste."
+        path="/"
+      />
       {/* Hero */}
       <section className="min-h-[calc(100vh-4rem)] flex items-center">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
