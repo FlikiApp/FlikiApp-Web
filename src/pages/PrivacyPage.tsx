@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 
@@ -9,6 +10,11 @@ export default function PrivacyPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      <Seo
+        title="Privacy Policy — Fliki"
+        description="How Fliki collects, uses, and protects your data."
+        path="/privacy"
+      />
       <SectionWrapper>
         <AnimatedSection>
           <div className="max-w-2xl mx-auto">
