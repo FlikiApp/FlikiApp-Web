@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
@@ -13,6 +14,11 @@ export default function AboutPage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3 }}
     >
+      <Seo
+        title="About — Fliki"
+        description="Why we think star ratings are broken, who's building Fliki, and the values behind the app."
+        path="/about"
+      />
       {/* Mission */}
       <SectionWrapper>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
