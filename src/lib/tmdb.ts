@@ -50,6 +50,26 @@ export async function fetchTrendingMovies(limit = 10): Promise<TrendingMovie[]> 
   }))
 }
 
+export async function fetchPopularMovies(limit = 20): Promise<TrendingMovie[]> {
+  const key = import.meta.env.VITE_TMDB_API_KEY
+  if (!key) throw new Error('Missing VITE_TMDB_API_KEY')
+
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en-US&page=1`
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`TMDB request failed: ${res.status}`)
+
+  const data: TmdbTrendingResponse = await res.json()
+  return data.results.slice(0, limit).map((m) => ({
+    id: m.id,
+    title: m.title,
+    posterUrl: m.poster_path ? `${POSTER_BASE}${m.poster_path}` : null,
+    backdropUrl: m.backdrop_path ? `${BACKDROP_BASE}${m.backdrop_path}` : null,
+    year: m.release_date ? m.release_date.slice(0, 4) : '',
+    rating: m.vote_average ?? 0,
+    overview: m.overview ?? '',
+  }))
+}
+
 interface TmdbVideo {
   key: string
   site: string
