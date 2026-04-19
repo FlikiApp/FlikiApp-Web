@@ -37,7 +37,25 @@ export default function HomePage() {
         }}
       />
       {/* Hero */}
-      <section className="min-h-[calc(100vh-4rem)] flex items-center">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden">
+        {/* Cinematic backdrop — warm bloom + subtle second light source */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            background:
+              'radial-gradient(70% 55% at 78% 45%, rgba(242,106,58,0.22) 0%, rgba(242,106,58,0) 60%), radial-gradient(50% 40% at 15% 85%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 60%)',
+          }}
+        />
+        {/* Faint scanline / vignette frame to evoke a cinema projection */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            background:
+              'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.35) 100%)',
+          }}
+        />
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
