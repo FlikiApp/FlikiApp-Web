@@ -140,7 +140,15 @@ export default function HomePage() {
       </SectionWrapper>
 
       {/* Final CTA */}
-      <section className="py-32 md:py-40 border-t border-border-subtle">
+      <section className="relative py-32 md:py-40 border-t border-border-subtle overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            background:
+              'radial-gradient(50% 60% at 50% 50%, rgba(242,106,58,0.15) 0%, rgba(242,106,58,0) 70%)',
+          }}
+        />
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
