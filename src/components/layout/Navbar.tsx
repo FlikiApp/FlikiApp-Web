@@ -10,7 +10,7 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle pt-[env(safe-area-inset-top)]">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -87,7 +87,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="md:hidden absolute top-16 left-0 right-0 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle"
+            className="md:hidden absolute top-full left-0 right-0 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle"
           >
             <div className="flex flex-col items-center gap-6 py-8">
               {NAV_LINKS.map((link) => (
