@@ -31,29 +31,46 @@ export default function PickBattle() {
     }
   }, [keyPresent])
 
-  // Stable random shuffle so pairs feel varied but don't change on every render
-  const order = useMemo(() => {
-    if (!movies) return []
-    const arr = movies.map((_, i) => i)
-    let s = 7
+  // Fresh random seed per page load so visitors get different matchups
+  const seed = useMemo(() => Math.floor(Math.random() * 100000) + 1, [])
+
+  // Build pairs by zipping a shuffled top-half with a shuffled bottom-half
+  // of the popularity list, so every pair spans different popularity tiers
+  // (e.g. #1 might face #17 instead of just #1 vs #2).
+  const pairs = useMemo<[number, number][]>(() => {
+    if (!movies || movies.length < 2) return []
+    const mid = Math.floor(movies.length / 2)
+    const top: number[] = []
+    const bot: number[] = []
+    for (let i = 0; i < movies.length; i++) {
+      if (i < mid) top.push(i)
+      else bot.push(i)
+    }
+    let s = seed
     const rand = () => {
       s = (s * 9301 + 49297) % 233280
       return s / 233280
     }
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(rand() * (i + 1))
-      ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    const shuffle = (arr: number[]) => {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1))
+        ;[arr[i], arr[j]] = [arr[j], arr[i]]
+      }
     }
-    return arr
-  }, [movies])
+    shuffle(top)
+    shuffle(bot)
+    const result: [number, number][] = []
+    const n = Math.min(top.length, bot.length)
+    for (let i = 0; i < n; i++) result.push([top[i], bot[i]])
+    return result
+  }, [movies, seed])
 
   if (!keyPresent || failed) return null
 
-  const ready = movies && order.length >= 2
-  const aIdx = ready ? order[(pairIndex * 2) % order.length] : -1
-  const bIdx = ready ? order[(pairIndex * 2 + 1) % order.length] : -1
-  const a = ready ? movies[aIdx] : null
-  const b = ready ? movies[bIdx] : null
+  const ready = movies && pairs.length > 0
+  const pair = ready ? pairs[pairIndex % pairs.length] : null
+  const a = pair ? movies![pair[0]] : null
+  const b = pair ? movies![pair[1]] : null
 
   const handlePick = (side: PickSide) => {
     if (winner) return
