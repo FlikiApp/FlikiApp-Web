@@ -7,6 +7,7 @@ import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
 import PhoneMockup from '../components/ui/PhoneMockup'
+import SplitText from '../components/ui/SplitText'
 import TrendingToday from '../components/ui/TrendingToday'
 import homeScreenshot from '../components/screenshots/home.png'
 import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
@@ -60,20 +61,28 @@ export default function HomePage() {
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
+            <div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] mb-6 tracking-tight">
-                Rank movies &amp; TV shows{' '}
-                <GradientText>your way</GradientText>
+                <SplitText delay={0.1} stagger={0.07} duration={0.7} className="block">
+                  Rank movies & TV shows <GradientText>your way</GradientText>
+                </SplitText>
               </h1>
-              <p className="text-text-secondary text-lg max-w-md mb-10 leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                className="text-text-secondary text-lg max-w-md mb-10 leading-relaxed"
+              >
                 Ditch star ratings. Use head-to-head comparisons to build rankings that actually reflect your taste.
-              </p>
-              <AppStoreButton />
-            </motion.div>
+              </motion.p>
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <AppStoreButton />
+              </motion.div>
+            </div>
 
             {/* Phone */}
             <motion.div
