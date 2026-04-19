@@ -161,18 +161,19 @@ interface BattleCardProps {
 function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
   const isWinner = winner === side
   const isLoser = winner !== null && winner !== side
+  const fromX = side === 'a' ? -48 : 48
 
   return (
     <motion.div
       layout
-      initial={{ opacity: 0, y: 16, scale: 0.96 }}
+      initial={{ opacity: 0, x: fromX, scale: 0.96 }}
       animate={{
         opacity: isLoser ? 0.25 : 1,
-        y: 0,
+        x: 0,
         scale: isLoser ? 0.92 : isWinner ? 1.04 : 1,
         filter: isLoser ? 'grayscale(60%)' : 'grayscale(0%)',
       }}
-      exit={{ opacity: 0, y: -12, scale: 0.9 }}
+      exit={{ opacity: 0, x: fromX, scale: 0.9 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
     >
       <Tilt maxTilt={8} lift={3} glare>
