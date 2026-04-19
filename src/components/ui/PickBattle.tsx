@@ -93,17 +93,15 @@ export default function PickBattle() {
         </AnimatedSection>
 
         <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4 sm:gap-8 md:gap-12 max-w-3xl mx-auto">
-          <AnimatePresence mode="popLayout">
-            {a && (
-              <BattleCard
-                key={`a-${a.id}-${pairIndex}`}
-                movie={a}
-                side="a"
-                winner={winner}
-                onPick={handlePick}
-              />
-            )}
-          </AnimatePresence>
+          {a && (
+            <BattleCard
+              key={`a-${pairIndex}`}
+              movie={a}
+              side="a"
+              winner={winner}
+              onPick={handlePick}
+            />
+          )}
 
           <div className="flex items-center justify-center">
             <motion.span
@@ -122,17 +120,15 @@ export default function PickBattle() {
             </motion.span>
           </div>
 
-          <AnimatePresence mode="popLayout">
-            {b && (
-              <BattleCard
-                key={`b-${b.id}-${pairIndex}`}
-                movie={b}
-                side="b"
-                winner={winner}
-                onPick={handlePick}
-              />
-            )}
-          </AnimatePresence>
+          {b && (
+            <BattleCard
+              key={`b-${pairIndex}`}
+              movie={b}
+              side="b"
+              winner={winner}
+              onPick={handlePick}
+            />
+          )}
         </div>
 
         <motion.div
@@ -165,7 +161,6 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
 
   return (
     <motion.div
-      layout
       initial={{ opacity: 0, x: fromX, scale: 0.96 }}
       animate={{
         opacity: isLoser ? 0.25 : 1,
@@ -173,8 +168,7 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
         scale: isLoser ? 0.92 : isWinner ? 1.04 : 1,
         filter: isLoser ? 'grayscale(60%)' : 'grayscale(0%)',
       }}
-      exit={{ opacity: 0, x: fromX, scale: 0.9 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <Tilt maxTilt={8} lift={3} glare>
         <button
