@@ -7,6 +7,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
+import DustMotes from '../components/ui/DustMotes'
 import PhoneMockup from '../components/ui/PhoneMockup'
 import SplitText from '../components/ui/SplitText'
 import TrendingToday from '../components/ui/TrendingToday'
@@ -82,6 +83,8 @@ export default function HomePage() {
           }}
           className="pointer-events-none absolute inset-0 -z-10 will-change-transform"
         />
+        {/* Dust motes drifting through the warm light */}
+        <DustMotes count={28} className="-z-10" />
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
