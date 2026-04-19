@@ -24,15 +24,6 @@ const FEATURE_SCREENSHOTS: (string | null)[] = [
   null,
 ]
 
-// Each feature needs a valid screenshot for the stacked crossfade;
-// fall back to the previous valid one for any features lacking their own.
-const STORY_SCREENSHOTS: string[] = (() => {
-  let last = homeScreenshot
-  return FEATURE_SCREENSHOTS.map((s) => {
-    if (s) last = s
-    return last
-  })
-})()
 
 export default function FeaturesPage() {
   const [activeIndex, setActiveIndex] = useState(0)
@@ -82,7 +73,7 @@ export default function FeaturesPage() {
             <div className="hidden lg:block">
               <div className="sticky top-24 flex justify-center pt-12">
                 <PhoneMockup
-                  screenshots={STORY_SCREENSHOTS}
+                  screenshots={FEATURE_SCREENSHOTS}
                   activeIndex={activeIndex}
                 />
               </div>
