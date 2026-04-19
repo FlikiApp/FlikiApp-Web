@@ -5,6 +5,7 @@ import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import CountUp from '../components/ui/CountUp'
+import Tilt from '../components/ui/Tilt'
 import { TEAM_MEMBERS, VALUES } from '../lib/constants'
 import memeImage from '../components/screenshots/meme.png'
 
@@ -65,6 +66,7 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
+            <Tilt maxTilt={7} lift={3} glare>
             <div
               className="relative rounded-2xl p-8 overflow-hidden"
               style={{
@@ -114,6 +116,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+            </Tilt>
           </AnimatedSection>
         </div>
       </SectionWrapper>
