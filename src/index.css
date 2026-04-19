@@ -69,3 +69,21 @@ body::before {
   background-color: var(--color-accent);
   color: #0B0B0D;
 }
+
+/* Seamless carousel — assumes a track containing two copies of the content. */
+@keyframes rail-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.rail-track {
+  animation: rail-scroll 70s linear infinite;
+  will-change: transform;
+}
+.rail-pause:hover .rail-track,
+.rail-pause:focus-within .rail-track,
+.rail-pause.rail-frozen .rail-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rail-track { animation: none; }
+}
