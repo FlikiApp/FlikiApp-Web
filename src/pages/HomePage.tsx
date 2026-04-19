@@ -26,10 +26,11 @@ export default function HomePage() {
   const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
   const vignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
 
-  // Phone leans forward and grows as the hero scrolls past
-  const phoneScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.15])
-  const phoneRotateY = useTransform(scrollYProgress, [0, 0.6], [0, -10])
-  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.6], [0, -3])
+  // Phone leans forward and grows as the hero scrolls past —
+  // turns to the right and nearly pops off the screen.
+  const phoneScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.4])
+  const phoneRotateY = useTransform(scrollYProgress, [0, 0.6], [0, 18])
+  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.6], [0, 4])
 
   return (
     <motion.div
