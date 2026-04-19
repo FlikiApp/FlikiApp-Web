@@ -64,9 +64,29 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <div className="border border-border-subtle rounded-2xl p-8">
-              <div className="text-center">
-                <div className="text-5xl font-bold font-serif mb-2 text-text-primary">
+            <div
+              className="relative rounded-2xl p-8 overflow-hidden"
+              style={{
+                backgroundImage:
+                  'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)',
+                boxShadow:
+                  '0 1px 0 rgba(255,255,255,0.08) inset, 0 0 0 1px rgba(255,255,255,0.05), 0 30px 60px -30px rgba(0,0,0,0.8)',
+                backdropFilter: 'blur(20px) saturate(160%)',
+                WebkitBackdropFilter: 'blur(20px) saturate(160%)',
+              }}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    'radial-gradient(80% 60% at 50% 0%, rgba(242,106,58,0.18) 0%, rgba(242,106,58,0) 70%)',
+                }}
+              />
+              <div className="relative text-center">
+                <div className="text-5xl font-bold font-serif italic mb-2 bg-clip-text text-transparent"
+                  style={{ backgroundImage: 'linear-gradient(105deg, #F26A3A 0%, #F5A623 60%, #FFD39B 100%)' }}
+                >
                   1 vs 1
                 </div>
                 <p className="text-text-secondary text-sm mb-8">
@@ -104,13 +124,16 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {TEAM_MEMBERS.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.08}>
-              <div className="border-t border-border-subtle pt-6">
-                <div className="w-12 h-12 rounded-full bg-surface-secondary flex items-center justify-center mb-4">
-                  <span className="text-lg font-semibold text-text-secondary">
+              <div className="group relative pt-6">
+                <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-colors duration-300 group-hover:bg-accent/60" />
+                <div
+                  className="w-12 h-12 rounded-full bg-surface-secondary flex items-center justify-center mb-4 ring-1 ring-border-subtle transition-all duration-300 group-hover:ring-accent/60 group-hover:shadow-[0_0_24px_-4px_rgba(242,106,58,0.35)]"
+                >
+                  <span className="text-lg font-semibold text-text-secondary transition-colors duration-300 group-hover:text-accent">
                     {member.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold">{member.name}</h3>
+                <h3 className="text-base font-semibold transition-colors duration-300 group-hover:text-accent">{member.name}</h3>
                 <p className="text-accent text-sm mb-3">{member.role}</p>
                 <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
               </div>
@@ -131,8 +154,9 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-8">
           {VALUES.map((value, i) => (
             <AnimatedSection key={value.title} delay={i * 0.08}>
-              <div className="border-t border-border-subtle pt-6 h-full">
-                <h3 className="text-base font-semibold mb-2">{value.title}</h3>
+              <div className="group relative pt-6 h-full">
+                <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-colors duration-300 group-hover:bg-accent/60" />
+                <h3 className="text-base font-semibold mb-2 transition-colors duration-300 group-hover:text-accent">{value.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
               </div>
             </AnimatedSection>
