@@ -60,7 +60,7 @@ export default function HomePage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden pt-12 md:pt-20 pb-40 md:pb-56"
+        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden pt-24 md:pt-36 pb-40 md:pb-56"
       >
         {/* Cinematic backdrop — warm bloom + subtle second light source (parallax) */}
         <motion.div
@@ -123,6 +123,7 @@ export default function HomePage() {
                   scale: phoneScale,
                   rotateY: phoneRotateY,
                   rotateZ: phoneRotateZ,
+                  transformOrigin: '50% 30%',
                   transformStyle: 'preserve-3d',
                 }}
                 className="will-change-transform"
