@@ -10,17 +10,22 @@
 
 @theme {
   --font-display: "Bebas Neue Pro", ui-sans-serif, system-ui, sans-serif;
-  --color-accent: #E8572A;
-  --color-accent-light: #FFF0EB;
 
-  --color-surface-primary: #FFFFFF;
-  --color-surface-secondary: #FAFAFA;
-  --color-surface-card: #FFFFFF;
-  --color-border-subtle: #E8E8E8;
+  --color-accent: #F26A3A;
+  --color-accent-warm: #F5A623;
+  --color-accent-deep: #C94317;
+  --color-accent-glow: rgba(242, 106, 58, 0.18);
 
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #6B6B6B;
-  --color-text-muted: #9B9B9B;
+  --color-surface-primary: #0B0B0D;
+  --color-surface-secondary: #121216;
+  --color-surface-card: #17171C;
+  --color-surface-elevated: #1E1E23;
+  --color-border-subtle: #27272D;
+  --color-border-strong: #3A3A42;
+
+  --color-text-primary: #F5F2EC;
+  --color-text-secondary: #A5A4A0;
+  --color-text-muted: #66656A;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
@@ -28,6 +33,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--color-surface-primary);
 }
 
 body {
@@ -37,4 +43,29 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle film grain — a single global overlay on body via ::before. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.9 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+}
+
+/* Warm radial bloom used behind hero phone and CTA sections */
+.cinema-glow {
+  background-image:
+    radial-gradient(60% 50% at 70% 40%, rgba(242, 106, 58, 0.18) 0%, rgba(242, 106, 58, 0) 60%),
+    radial-gradient(40% 40% at 20% 80%, rgba(245, 166, 35, 0.08) 0%, rgba(245, 166, 35, 0) 60%);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #0B0B0D;
 }
