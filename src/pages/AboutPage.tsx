@@ -4,6 +4,7 @@ import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
+import CountUp from '../components/ui/CountUp'
 import { TEAM_MEMBERS, VALUES } from '../lib/constants'
 import memeImage from '../components/screenshots/meme.png'
 
@@ -94,7 +95,12 @@ export default function AboutPage() {
                 </p>
                 <div className="grid grid-cols-3 gap-4 text-center border-t border-border-subtle pt-6">
                   <div>
-                    <div className="text-xl font-bold text-text-primary">500K+</div>
+                    <CountUp
+                      to={500}
+                      duration={1.8}
+                      format={(n) => `${Math.round(n)}K+`}
+                      className="text-xl font-bold text-text-primary tabular-nums"
+                    />
                     <div className="text-xs text-text-muted mt-1">Titles</div>
                   </div>
                   <div>
