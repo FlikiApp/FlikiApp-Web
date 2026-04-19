@@ -72,7 +72,7 @@ export default function PhoneMockup({
                       initial={false}
                       animate={{ opacity: i === activeIndex ? 1 : 0 }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-contain"
                     />
                   ) : (
                     <motion.div
@@ -94,7 +94,7 @@ export default function PhoneMockup({
               <img
                 src={screenshot}
                 alt="App screenshot"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
               />
             ) : comingSoon ? (
               <div className="flex items-center justify-center h-full bg-surface-secondary">
