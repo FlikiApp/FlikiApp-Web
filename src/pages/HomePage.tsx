@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
 import Seo from '../components/Seo'
 import StructuredData from '../components/StructuredData'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -23,6 +23,14 @@ export default function HomePage() {
   // parallax planes behind the scrolling content.
   const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
   const vignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+
+  // Cursor-tracking 3D tilt for the hero phone mockup
+  const pointerX = useMotionValue(0)
+  const pointerY = useMotionValue(0)
+  const springCfg = { stiffness: 160, damping: 22, mass: 0.6 }
+  const tiltX = useSpring(useTransform(pointerY, [-0.5, 0.5], [10, -10]), springCfg)
+  const tiltY = useSpring(useTransform(pointerX, [-0.5, 0.5], [-14, 14]), springCfg)
+  const liftY = useSpring(useTransform(pointerY, [-0.5, 0.5], [-4, 4]), springCfg)
 
   return (
     <motion.div
@@ -100,14 +108,34 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Phone */}
+            {/* Phone — cursor-tracking 3D tilt */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex justify-center lg:justify-end"
+              style={{ perspective: 1200 }}
+              onMouseMove={(e) => {
+                const rect = e.currentTarget.getBoundingClientRect()
+                pointerX.set((e.clientX - rect.left) / rect.width - 0.5)
+                pointerY.set((e.clientY - rect.top) / rect.height - 0.5)
+              }}
+              onMouseLeave={() => {
+                pointerX.set(0)
+                pointerY.set(0)
+              }}
             >
-              <PhoneMockup screenshot={homeScreenshot} />
+              <motion.div
+                style={{
+                  rotateX: tiltX,
+                  rotateY: tiltY,
+                  y: liftY,
+                  transformStyle: 'preserve-3d',
+                }}
+                className="will-change-transform"
+              >
+                <PhoneMockup screenshot={homeScreenshot} />
+              </motion.div>
             </motion.div>
           </div>
         </div>
