@@ -11,7 +11,6 @@ import DustMotes from '../components/ui/DustMotes'
 import PhoneMockup from '../components/ui/PhoneMockup'
 import PickBattle from '../components/ui/PickBattle'
 import SplitText from '../components/ui/SplitText'
-import Tilt from '../components/ui/Tilt'
 import TrendingToday from '../components/ui/TrendingToday'
 import homeScreenshot from '../components/screenshots/home.png'
 import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
@@ -26,6 +25,11 @@ export default function HomePage() {
   // parallax planes behind the scrolling content.
   const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
   const vignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+
+  // Phone leans forward and grows as the hero scrolls past
+  const phoneScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.15])
+  const phoneRotateY = useTransform(scrollYProgress, [0, 0.6], [0, -10])
+  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.6], [0, -3])
 
   return (
     <motion.div
@@ -105,16 +109,25 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Phone — cursor-tracking 3D tilt */}
+            {/* Phone — scroll-driven lean and zoom */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex justify-center lg:justify-end"
+              style={{ perspective: 1400 }}
             >
-              <Tilt maxTilt={12} lift={4}>
+              <motion.div
+                style={{
+                  scale: phoneScale,
+                  rotateY: phoneRotateY,
+                  rotateZ: phoneRotateZ,
+                  transformStyle: 'preserve-3d',
+                }}
+                className="will-change-transform"
+              >
                 <PhoneMockup screenshot={homeScreenshot} />
-              </Tilt>
+              </motion.div>
             </motion.div>
           </div>
         </div>
