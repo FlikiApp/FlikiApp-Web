@@ -10,7 +10,7 @@ export default function Navbar() {
   const { pathname } = useLocation()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-border-subtle">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-surface-primary/75 backdrop-blur-xl border-b border-border-subtle">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -20,29 +20,52 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm transition-colors ${
-                  pathname === link.path
-                    ? 'text-text-primary font-medium'
-                    : 'text-text-secondary hover:text-text-primary'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.path
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`group relative text-sm transition-colors duration-300 ${
+                    active ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    aria-hidden
+                    className={`absolute -bottom-1 left-0 h-px bg-accent transition-all duration-300 ease-out ${
+                      active ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`}
+                  />
+                </Link>
+              )
+            })}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA — liquid glass */}
           <a
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center gap-1.5 bg-text-primary text-white px-4 py-2 rounded-lg text-sm font-medium hover:opacity-80 transition-opacity"
+            className="group relative hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-text-primary overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+            style={{
+              backgroundImage:
+                'linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 100%)',
+              boxShadow:
+                '0 1px 0 rgba(255,255,255,0.15) inset, 0 0 0 1px rgba(255,255,255,0.07), 0 10px 24px -12px rgba(242,106,58,0.4)',
+              backdropFilter: 'blur(16px) saturate(160%)',
+              WebkitBackdropFilter: 'blur(16px) saturate(160%)',
+            }}
           >
-            Download
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-50 transition-opacity duration-300 group-hover:opacity-100"
+              style={{
+                background:
+                  'radial-gradient(120% 90% at 20% 0%, rgba(242,106,58,0.28) 0%, rgba(242,106,58,0) 60%)',
+              }}
+            />
+            <span className="relative">Download</span>
           </a>
 
           {/* Mobile hamburger */}
@@ -64,7 +87,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border-subtle"
+            className="md:hidden absolute top-16 left-0 right-0 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle"
           >
             <div className="flex flex-col items-center gap-6 py-8">
               {NAV_LINKS.map((link) => (
@@ -85,7 +108,15 @@ export default function Navbar() {
                 href={APP_STORE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-text-primary text-white px-6 py-2.5 rounded-lg text-sm font-medium"
+                className="relative px-6 py-2.5 rounded-xl text-sm font-medium text-text-primary overflow-hidden"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
+                  boxShadow:
+                    '0 1px 0 rgba(255,255,255,0.18) inset, 0 0 0 1px rgba(255,255,255,0.08), 0 10px 30px -12px rgba(242,106,58,0.45)',
+                  backdropFilter: 'blur(18px) saturate(160%)',
+                  WebkitBackdropFilter: 'blur(18px) saturate(160%)',
+                }}
               >
                 Download
               </a>
