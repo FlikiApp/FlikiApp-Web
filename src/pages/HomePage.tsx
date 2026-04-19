@@ -28,9 +28,9 @@ export default function HomePage() {
 
   // Phone leans forward and grows as the hero scrolls past —
   // turns to the right and nearly pops off the screen.
-  const phoneScale = useTransform(scrollYProgress, [0, 0.6], [1, 1.4])
-  const phoneRotateY = useTransform(scrollYProgress, [0, 0.6], [0, 18])
-  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.6], [0, 4])
+  const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4])
+  const phoneRotateY = useTransform(scrollYProgress, [0, 0.3], [0, 18])
+  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.3], [0, 4])
 
   return (
     <motion.div
