@@ -7,6 +7,7 @@ import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
 import PhoneMockup from '../components/ui/PhoneMockup'
+import TrendingToday from '../components/ui/TrendingToday'
 import homeScreenshot from '../components/screenshots/home.png'
 import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
 
@@ -86,6 +87,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Trending Today */}
+      <TrendingToday />
 
       {/* How It Works */}
       <SectionWrapper className="border-t border-border-subtle">
