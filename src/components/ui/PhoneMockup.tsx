@@ -60,52 +60,56 @@ export default function PhoneMockup({
 
           {/* Screen content */}
           <div className="absolute inset-[6px] rounded-[32px] overflow-hidden bg-black">
-            {hasStack ? (
-              <>
-                {screenshots!.map((src, i) =>
-                  src ? (
-                    <motion.img
-                      key={`img-${i}`}
-                      src={src}
-                      alt=""
-                      aria-hidden={i !== activeIndex}
-                      initial={false}
-                      animate={{ opacity: i === activeIndex ? 1 : 0 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  ) : (
-                    <motion.div
-                      key={`soon-${i}`}
-                      aria-hidden={i !== activeIndex}
-                      initial={false}
-                      animate={{ opacity: i === activeIndex ? 1 : 0 }}
-                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                      className="absolute inset-0 flex items-center justify-center bg-surface-secondary"
-                    >
-                      <span className="text-text-muted text-lg font-semibold tracking-wide">
-                        Coming Soon
-                      </span>
-                    </motion.div>
-                  ),
-                )}
-              </>
-            ) : screenshot ? (
-              <img
-                src={screenshot}
-                alt="App screenshot"
-                className="w-full h-full object-cover"
-              />
-            ) : comingSoon ? (
-              <div className="flex items-center justify-center h-full bg-surface-secondary">
-                <span className="text-text-muted text-lg font-semibold tracking-wide">Coming Soon</span>
-              </div>
-            ) : (
-              <div className="pt-14 px-5 space-y-4 bg-surface-secondary h-full">
-                <div className="h-3 w-16 bg-white/10 rounded-full" />
-                <div className="h-5 w-32 bg-white/5 rounded-lg" />
-              </div>
-            )}
+            {/* Inner wrapper shifts the screenshot(s) down so there's a black
+                band at the top of the screen between the bezel and the image */}
+            <div className="absolute inset-x-0 top-[14px] bottom-0">
+              {hasStack ? (
+                <>
+                  {screenshots!.map((src, i) =>
+                    src ? (
+                      <motion.img
+                        key={`img-${i}`}
+                        src={src}
+                        alt=""
+                        aria-hidden={i !== activeIndex}
+                        initial={false}
+                        animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    ) : (
+                      <motion.div
+                        key={`soon-${i}`}
+                        aria-hidden={i !== activeIndex}
+                        initial={false}
+                        animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute inset-0 flex items-center justify-center bg-surface-secondary"
+                      >
+                        <span className="text-text-muted text-lg font-semibold tracking-wide">
+                          Coming Soon
+                        </span>
+                      </motion.div>
+                    ),
+                  )}
+                </>
+              ) : screenshot ? (
+                <img
+                  src={screenshot}
+                  alt="App screenshot"
+                  className="w-full h-full object-cover"
+                />
+              ) : comingSoon ? (
+                <div className="flex items-center justify-center h-full bg-surface-secondary">
+                  <span className="text-text-muted text-lg font-semibold tracking-wide">Coming Soon</span>
+                </div>
+              ) : (
+                <div className="pt-14 px-5 space-y-4 bg-surface-secondary h-full">
+                  <div className="h-3 w-16 bg-white/10 rounded-full" />
+                  <div className="h-5 w-32 bg-white/5 rounded-lg" />
+                </div>
+              )}
+            </div>
 
             {/* Subtle screen vignette */}
             <div
