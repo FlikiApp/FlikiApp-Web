@@ -63,7 +63,7 @@ export default function HomePage() {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden pt-24 md:pt-36 pb-40 md:pb-56"
+        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden pt-24 md:pt-36 pb-56 md:pb-64"
       >
         {/* Cinematic backdrop — warm bloom + subtle second light source (parallax) */}
         <motion.div
