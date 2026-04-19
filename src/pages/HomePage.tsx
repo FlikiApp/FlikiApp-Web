@@ -31,6 +31,9 @@ export default function HomePage() {
   const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4])
   const phoneRotateY = useTransform(scrollYProgress, [0, 0.3], [0, 18])
   const phoneRotateZ = useTransform(scrollYProgress, [0, 0.3], [0, 4])
+  // Shift the phone down as it scales so its top edge stays well
+  // below the navbar even at peak scale.
+  const phoneY = useTransform(scrollYProgress, [0, 0.3], [0, 90])
 
   return (
     <motion.div
@@ -123,7 +126,7 @@ export default function HomePage() {
                   scale: phoneScale,
                   rotateY: phoneRotateY,
                   rotateZ: phoneRotateZ,
-                  transformOrigin: '50% 30%',
+                  y: phoneY,
                   transformStyle: 'preserve-3d',
                 }}
                 className="will-change-transform"
