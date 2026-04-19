@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 import { Check } from 'lucide-react'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -13,6 +14,7 @@ import homeScreenshot from '../components/screenshots/home.png'
 import recommendationsScreenshot from '../components/screenshots/recommendations.png'
 import discoverScreenshot from '../components/screenshots/discover.png'
 import leaderboardScreenshot from '../components/screenshots/leaderboard.png'
+
 const FEATURE_SCREENSHOTS: (string | null)[] = [
   homeScreenshot,
   rankScreenshot,
@@ -22,7 +24,19 @@ const FEATURE_SCREENSHOTS: (string | null)[] = [
   null,
 ]
 
+// Each feature needs a valid screenshot for the stacked crossfade;
+// fall back to the previous valid one for any features lacking their own.
+const STORY_SCREENSHOTS: string[] = (() => {
+  let last = homeScreenshot
+  return FEATURE_SCREENSHOTS.map((s) => {
+    if (s) last = s
+    return last
+  })
+})()
+
 export default function FeaturesPage() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -49,51 +63,33 @@ export default function FeaturesPage() {
         </AnimatedSection>
       </SectionWrapper>
 
-      {/* Alternating feature sections */}
-      {DETAILED_FEATURES.map((feature, i) => {
-        const isReversed = i % 2 === 1
-
-        return (
-          <SectionWrapper
-            key={feature.title}
-            className="border-t border-border-subtle"
-          >
-            <div
-              className={`grid lg:grid-cols-2 gap-16 items-center`}
-            >
-              <AnimatedSection
-                direction={isReversed ? 'right' : 'left'}
-                className={isReversed ? 'lg:order-2' : ''}
-              >
-                <div>
-                  <span className="text-xs font-medium text-accent uppercase tracking-widest">
-                    {feature.tagline}
-                  </span>
-                  <h2 className="text-3xl font-bold tracking-tight mt-3 mb-4">{feature.title}</h2>
-                  <p className="text-text-secondary leading-relaxed mb-8">
-                    {feature.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {feature.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-3">
-                        <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" strokeWidth={2} />
-                        <span className="text-text-secondary text-sm">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </AnimatedSection>
-
-              <AnimatedSection
-                direction={isReversed ? 'left' : 'right'}
-                className={isReversed ? 'lg:order-1' : ''}
-              >
-                <PhoneMockup screenshot={FEATURE_SCREENSHOTS[i] ?? undefined} comingSoon={!FEATURE_SCREENSHOTS[i]} />
-              </AnimatedSection>
+      {/* Scroll-story: sticky phone on desktop, inline phones on mobile */}
+      <section className="border-t border-border-subtle">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
+            <div>
+              {DETAILED_FEATURES.map((feature, i) => (
+                <FeatureBlock
+                  key={feature.title}
+                  feature={feature}
+                  index={i}
+                  onInView={setActiveIndex}
+                  mobileScreenshot={FEATURE_SCREENSHOTS[i]}
+                />
+              ))}
             </div>
-          </SectionWrapper>
-        )
-      })}
+
+            <div className="hidden lg:block">
+              <div className="sticky top-24 flex justify-center pt-12">
+                <PhoneMockup
+                  screenshots={STORY_SCREENSHOTS}
+                  activeIndex={activeIndex}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-32 md:py-40 border-t border-border-subtle">
@@ -110,5 +106,51 @@ export default function FeaturesPage() {
         </div>
       </section>
     </motion.div>
+  )
+}
+
+interface FeatureBlockProps {
+  feature: (typeof DETAILED_FEATURES)[number]
+  index: number
+  onInView: (index: number) => void
+  mobileScreenshot: string | null
+}
+
+function FeatureBlock({ feature, index, onInView, mobileScreenshot }: FeatureBlockProps) {
+  const ref = useRef<HTMLDivElement>(null)
+  // Fire as soon as any part of the block enters the middle 20% of the viewport,
+  // so the active feature switches near the reader's focal point.
+  const inView = useInView(ref, { margin: '-45% 0px -45% 0px' })
+
+  useEffect(() => {
+    if (inView) onInView(index)
+  }, [inView, index, onInView])
+
+  return (
+    <div ref={ref} className="py-20 lg:py-32 first:pt-12 lg:first:pt-24">
+      <AnimatedSection>
+        <span className="text-xs font-medium text-accent uppercase tracking-widest">
+          {feature.tagline}
+        </span>
+        <h2 className="text-3xl font-bold tracking-tight mt-3 mb-4">{feature.title}</h2>
+        <p className="text-text-secondary leading-relaxed mb-8">{feature.description}</p>
+        <ul className="space-y-3">
+          {feature.bullets.map((bullet) => (
+            <li key={bullet} className="flex items-start gap-3">
+              <Check className="w-4 h-4 text-accent mt-0.5 shrink-0" strokeWidth={2} />
+              <span className="text-text-secondary text-sm">{bullet}</span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile-only inline phone so small screens still see the relevant screen */}
+        <div className="lg:hidden mt-10 flex justify-center">
+          <PhoneMockup
+            screenshot={mobileScreenshot ?? undefined}
+            comingSoon={!mobileScreenshot}
+          />
+        </div>
+      </AnimatedSection>
+    </div>
   )
 }
