@@ -100,8 +100,18 @@ export default function HomePage() {
         <div className="grid md:grid-cols-3 gap-12">
           {HOW_IT_WORKS_STEPS.map((step, i) => (
             <AnimatedSection key={step.title} delay={i * 0.1}>
-              <div>
-                <span className="text-xs font-medium text-text-muted mb-4 block">0{i + 1}</span>
+              <div className="relative pt-8">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent/60 via-border-subtle to-transparent" />
+                <span
+                  aria-hidden
+                  className="font-display text-7xl leading-none tracking-tight bg-clip-text text-transparent block mb-6"
+                  style={{
+                    backgroundImage:
+                      'linear-gradient(180deg, rgba(242,106,58,0.9) 0%, rgba(245,166,35,0.35) 70%, rgba(245,166,35,0) 100%)',
+                  }}
+                >
+                  0{i + 1}
+                </span>
                 <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
                   {step.description}
