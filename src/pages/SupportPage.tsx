@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { Plus } from 'lucide-react'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
@@ -85,18 +87,99 @@ export default function SupportPage() {
           </h2>
         </AnimatedSection>
 
-        <div className="max-w-2xl space-y-8">
-          {SUPPORT_FAQS.map((faq, i) => (
-            <AnimatedSection key={faq.question} delay={i * 0.06}>
-              <div className="group relative pt-6">
-                <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-all duration-300 group-hover:bg-accent/60" />
-                <h3 className="text-base font-semibold mb-2 transition-colors duration-300 group-hover:text-accent">{faq.question}</h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{faq.answer}</p>
-              </div>
-            </AnimatedSection>
-          ))}
+        <div className="max-w-2xl">
+          <FAQAccordion />
         </div>
       </SectionWrapper>
     </motion.div>
+  )
+}
+
+function FAQAccordion() {
+  // First question open by default to hint at the interaction
+  const [openSet, setOpenSet] = useState<Set<number>>(() => new Set([0]))
+
+  const toggle = (i: number) => {
+    setOpenSet((prev) => {
+      const next = new Set(prev)
+      if (next.has(i)) next.delete(i)
+      else next.add(i)
+      return next
+    })
+  }
+
+  return (
+    <div>
+      {SUPPORT_FAQS.map((faq, i) => (
+        <FAQItem
+          key={faq.question}
+          question={faq.question}
+          answer={faq.answer}
+          index={i}
+          open={openSet.has(i)}
+          onToggle={() => toggle(i)}
+        />
+      ))}
+    </div>
+  )
+}
+
+interface FAQItemProps {
+  question: string
+  answer: string
+  index: number
+  open: boolean
+  onToggle: () => void
+}
+
+function FAQItem({ question, answer, index, open, onToggle }: FAQItemProps) {
+  return (
+    <AnimatedSection delay={index * 0.05}>
+      <div className="border-t border-border-subtle last:border-b">
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={open}
+          className="group w-full py-5 flex items-center justify-between gap-4 text-left"
+        >
+          <h3
+            className={`text-base font-semibold transition-colors duration-300 ${
+              open ? 'text-accent' : 'text-text-primary group-hover:text-accent'
+            }`}
+          >
+            {question}
+          </h3>
+          <motion.span
+            aria-hidden
+            animate={{ rotate: open ? 45 : 0 }}
+            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className={`shrink-0 transition-colors duration-300 ${
+              open ? 'text-accent' : 'text-text-muted group-hover:text-accent'
+            }`}
+          >
+            <Plus className="w-5 h-5" strokeWidth={2} />
+          </motion.span>
+        </button>
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              key="answer"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                height: { duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+                opacity: { duration: 0.25, ease: 'easeOut' },
+              }}
+              className="overflow-hidden"
+            >
+              <p className="text-text-secondary text-sm leading-relaxed pb-6 pr-8">
+                {answer}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </AnimatedSection>
   )
 }
