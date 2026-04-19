@@ -76,7 +76,7 @@ body::before {
   to   { transform: translateX(-50%); }
 }
 .rail-track {
-  animation: rail-scroll 70s linear infinite;
+  animation: rail-scroll 90s linear infinite;
   will-change: transform;
 }
 .rail-pause:hover .rail-track,
