@@ -1,10 +1,24 @@
+import { motion } from 'framer-motion'
+
 interface PhoneMockupProps {
   className?: string
   screenshot?: string
+  /** When provided, the phone crossfades between these images driven by activeIndex. */
+  screenshots?: string[]
+  activeIndex?: number
   comingSoon?: boolean
 }
 
-export default function PhoneMockup({ className = '', screenshot, comingSoon }: PhoneMockupProps) {
+export default function PhoneMockup({
+  className = '',
+  screenshot,
+  screenshots,
+  activeIndex = 0,
+  comingSoon,
+}: PhoneMockupProps) {
+  const hasStack = screenshots && screenshots.length > 0
+  const hasImage = hasStack || Boolean(screenshot)
+
   return (
     <div className={`relative ${className}`}>
       {/* Warm ambient bloom behind the phone */}
@@ -39,13 +53,28 @@ export default function PhoneMockup({ className = '', screenshot, comingSoon }: 
           />
 
           {/* Dynamic Island (only show for placeholder) */}
-          {!screenshot && (
+          {!hasImage && (
             <div className="absolute top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full z-10 border border-white/5" />
           )}
 
           {/* Screen content */}
           <div className="absolute inset-[6px] rounded-[32px] overflow-hidden bg-black">
-            {screenshot ? (
+            {hasStack ? (
+              <>
+                {screenshots!.map((src, i) => (
+                  <motion.img
+                    key={src + i}
+                    src={src}
+                    alt=""
+                    aria-hidden={i !== activeIndex}
+                    initial={false}
+                    animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ))}
+              </>
+            ) : screenshot ? (
               <img
                 src={screenshot}
                 alt="App screenshot"
