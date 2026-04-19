@@ -60,12 +60,13 @@ export default function SupportPage() {
             },
           ].map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.08}>
-              <div className="border-t border-border-subtle pt-6 h-full">
-                <h3 className="text-base font-semibold mb-2">{item.title}</h3>
+              <div className="group relative pt-6 h-full">
+                <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-colors duration-300 group-hover:bg-accent/60" />
+                <h3 className="text-base font-semibold mb-2 transition-colors duration-300 group-hover:text-accent">{item.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">{item.description}</p>
                 <a
                   href={`mailto:${item.email}`}
-                  className="text-accent text-sm font-medium hover:underline"
+                  className="relative text-accent text-sm font-medium inline-block after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full"
                 >
                   {item.email}
                 </a>
@@ -87,8 +88,9 @@ export default function SupportPage() {
         <div className="max-w-2xl space-y-8">
           {SUPPORT_FAQS.map((faq, i) => (
             <AnimatedSection key={faq.question} delay={i * 0.06}>
-              <div className="border-t border-border-subtle pt-6">
-                <h3 className="text-base font-semibold mb-2">{faq.question}</h3>
+              <div className="group relative pt-6">
+                <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-all duration-300 group-hover:bg-accent/60" />
+                <h3 className="text-base font-semibold mb-2 transition-colors duration-300 group-hover:text-accent">{faq.question}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{faq.answer}</p>
               </div>
             </AnimatedSection>
