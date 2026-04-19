@@ -3,8 +3,9 @@ import { motion } from 'framer-motion'
 interface PhoneMockupProps {
   className?: string
   screenshot?: string
-  /** When provided, the phone crossfades between these images driven by activeIndex. */
-  screenshots?: string[]
+  /** When provided, the phone crossfades between these slots driven by activeIndex.
+   *  Null slots render a "Coming Soon" panel instead of an image. */
+  screenshots?: (string | null)[]
   activeIndex?: number
   comingSoon?: boolean
 }
@@ -61,18 +62,33 @@ export default function PhoneMockup({
           <div className="absolute inset-[6px] rounded-[32px] overflow-hidden bg-black">
             {hasStack ? (
               <>
-                {screenshots!.map((src, i) => (
-                  <motion.img
-                    key={src + i}
-                    src={src}
-                    alt=""
-                    aria-hidden={i !== activeIndex}
-                    initial={false}
-                    animate={{ opacity: i === activeIndex ? 1 : 0 }}
-                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                ))}
+                {screenshots!.map((src, i) =>
+                  src ? (
+                    <motion.img
+                      key={`img-${i}`}
+                      src={src}
+                      alt=""
+                      aria-hidden={i !== activeIndex}
+                      initial={false}
+                      animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <motion.div
+                      key={`soon-${i}`}
+                      aria-hidden={i !== activeIndex}
+                      initial={false}
+                      animate={{ opacity: i === activeIndex ? 1 : 0 }}
+                      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute inset-0 flex items-center justify-center bg-surface-secondary"
+                    >
+                      <span className="text-text-muted text-lg font-semibold tracking-wide">
+                        Coming Soon
+                      </span>
+                    </motion.div>
+                  ),
+                )}
               </>
             ) : screenshot ? (
               <img
