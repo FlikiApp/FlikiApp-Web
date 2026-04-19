@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useRef } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import Seo from '../components/Seo'
 import StructuredData from '../components/StructuredData'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -13,6 +14,16 @@ import homeScreenshot from '../components/screenshots/home.png'
 import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
 
 export default function HomePage() {
+  const heroRef = useRef<HTMLElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  })
+  // Backdrop layers drift at different rates so they feel like
+  // parallax planes behind the scrolling content.
+  const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
+  const vignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,24 +50,29 @@ export default function HomePage() {
         }}
       />
       {/* Hero */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden">
-        {/* Cinematic backdrop — warm bloom + subtle second light source */}
-        <div
+      <section
+        ref={heroRef}
+        className="relative min-h-[calc(100vh-4rem)] flex items-center overflow-hidden"
+      >
+        {/* Cinematic backdrop — warm bloom + subtle second light source (parallax) */}
+        <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10"
           style={{
+            y: glowY,
             background:
               'radial-gradient(70% 55% at 78% 45%, rgba(242,106,58,0.22) 0%, rgba(242,106,58,0) 60%), radial-gradient(50% 40% at 15% 85%, rgba(245,166,35,0.10) 0%, rgba(245,166,35,0) 60%)',
           }}
+          className="pointer-events-none absolute inset-0 -z-10 will-change-transform"
         />
         {/* Faint scanline / vignette frame to evoke a cinema projection */}
-        <div
+        <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10"
           style={{
+            y: vignetteY,
             background:
               'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 80%, rgba(0,0,0,0.35) 100%)',
           }}
+          className="pointer-events-none absolute inset-0 -z-10 will-change-transform"
         />
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
