@@ -6,7 +6,7 @@ import GradientText from './GradientText'
 import TrailerModal from './TrailerModal'
 import { fetchTrendingMovies, hasTmdbKey, type TrendingMovie } from '../../lib/tmdb'
 
-const HOVER_DWELL_MS = 1000
+const HOVER_DWELL_MS = 1500
 
 interface Selection {
   movie: TrendingMovie
