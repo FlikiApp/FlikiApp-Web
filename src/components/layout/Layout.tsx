@@ -10,6 +10,12 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      {/* Solid strip filling the iOS safe-area above the navbar */}
+      <div
+        aria-hidden
+        className="fixed top-0 left-0 right-0 pointer-events-none bg-surface-primary"
+        style={{ height: 'env(safe-area-inset-top, 0px)', zIndex: 60 }}
+      />
       <Navbar />
       <main
         className="flex-1"
