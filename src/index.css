@@ -45,6 +45,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Fills the iOS safe-area above the navbar with the surface color
+   so notched iPhones never show a gap between the screen top and the
+   navbar, regardless of how env() resolves. */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background-color: var(--color-surface-primary);
+  z-index: 60;
+  pointer-events: none;
+}
+
 /* Subtle film grain — a single global overlay on body via ::before. */
 body::before {
   content: "";

@@ -11,7 +11,10 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 pt-[calc(4rem+env(safe-area-inset-top))]">
+      <main
+        className="flex-1"
+        style={{ paddingTop: 'calc(4rem + env(safe-area-inset-top, 0px))' }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
