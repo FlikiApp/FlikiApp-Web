@@ -14,7 +14,10 @@ export default function Layout() {
       <div
         aria-hidden
         className="fixed top-0 left-0 right-0 pointer-events-none bg-surface-primary"
-        style={{ height: 'env(safe-area-inset-top, 0px)', zIndex: 60 }}
+        style={{
+          height: 'max(env(safe-area-inset-top, 0px), env(titlebar-area-height, 0px))',
+          zIndex: 110,
+        }}
       />
       <Navbar />
       <main
