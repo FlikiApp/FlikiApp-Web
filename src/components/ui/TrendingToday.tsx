@@ -145,7 +145,7 @@ function RailItem({ movie, index, instance, isSelected, onOpen }: RailItemProps)
       onFocus={armDwell}
       onBlur={clearDwell}
       aria-label={`Watch trailer for ${movie.title}`}
-      className="group relative shrink-0 w-[150px] sm:w-[170px] md:w-[190px] text-left cursor-pointer"
+      className="group relative shrink-0 w-[150px] sm:w-[170px] md:w-[190px] text-left cursor-pointer rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
       style={{ perspective: '1000px' }}
     >
       <div className="relative transition-transform duration-500 ease-out will-change-transform group-hover:[transform:rotateY(-5deg)_rotateX(3deg)_translateY(-6px)]">
