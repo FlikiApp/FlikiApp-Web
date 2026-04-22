@@ -53,7 +53,7 @@ export default function Navbar() {
             href={APP_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-text-primary overflow-hidden transition-all duration-300 hover:-translate-y-0.5"
+            className="group relative hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium text-text-primary overflow-hidden transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary"
             style={{
               backgroundImage:
                 'linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 100%)',
