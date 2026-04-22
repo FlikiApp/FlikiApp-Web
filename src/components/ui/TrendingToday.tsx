@@ -63,7 +63,7 @@ export default function TrendingToday() {
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
         />
 
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
             <div className="flex items-end justify-between gap-6 flex-wrap mb-12">
               <div>
