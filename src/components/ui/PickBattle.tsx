@@ -94,7 +94,7 @@ export default function PickBattle() {
         }}
       />
 
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <AnimatedSection>
           <div className="text-center mb-14">
             <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">
