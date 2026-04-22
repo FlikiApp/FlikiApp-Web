@@ -17,7 +17,7 @@ export default function Navbar() {
         zIndex: 100,
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" onClick={() => setMobileOpen(false)}>
