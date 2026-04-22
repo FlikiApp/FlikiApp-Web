@@ -193,7 +193,7 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
           onClick={() => onPick(side)}
           disabled={winner !== null}
           aria-label={`Pick ${movie.title}`}
-          className="relative block w-full group disabled:cursor-default"
+          className="relative block w-full group disabled:cursor-default rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
         >
           <div
             className={`relative aspect-[2/3] rounded-2xl overflow-hidden ring-1 ring-border-subtle transition-all duration-500 ${
