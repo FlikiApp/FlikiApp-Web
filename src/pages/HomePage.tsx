@@ -97,17 +97,17 @@ export default function HomePage() {
                 </SplitText>
               </h1>
               <motion.p
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.65, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
                 className="text-text-secondary text-lg max-w-md mb-10 leading-relaxed"
               >
                 Ditch star ratings. Use head-to-head comparisons to build rankings that actually reflect your taste.
               </motion.p>
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.85, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.65, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
                 className="flex justify-center lg:justify-start"
               >
                 <AppStoreButton />
