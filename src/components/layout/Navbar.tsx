@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -7,11 +7,25 @@ import { NAV_LINKS, APP_STORE_URL } from '../../lib/constants'
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const glass = scrolled || mobileOpen
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 bg-surface-primary border-b border-border-subtle"
+      className={`fixed top-0 left-0 right-0 transition-[background-color,backdrop-filter,border-color] duration-300 ${
+        glass
+          ? 'bg-surface-primary/70 border-b border-border-subtle backdrop-blur-xl backdrop-saturate-150'
+          : 'bg-transparent border-b border-transparent'
+      }`}
       style={{
         paddingTop: 'env(safe-area-inset-top, 0px)',
         zIndex: 100,
