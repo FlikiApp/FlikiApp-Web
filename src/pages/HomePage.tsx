@@ -87,7 +87,7 @@ export default function HomePage() {
         />
         {/* Dust motes drifting through the warm light */}
         <DustMotes count={28} className="-z-10" />
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Text */}
             <div>
@@ -207,7 +207,7 @@ export default function HomePage() {
               'radial-gradient(50% 60% at 50% 50%, rgba(242,106,58,0.15) 0%, rgba(242,106,58,0) 70%)',
           }}
         />
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
               Ready to <GradientText>rank</GradientText>?
