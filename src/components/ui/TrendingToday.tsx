@@ -92,7 +92,7 @@ export default function TrendingToday() {
                   onOpen={(m) => setSelected({ movie: m, instance: i })}
                 />
               ) : (
-                <RailSkeleton key={`skeleton-${i}`} />
+                <RailSkeleton key={`skeleton-${i}`} index={i} />
               ),
             )}
           </div>
@@ -235,13 +235,14 @@ function RailItem({ movie, index, instance, isSelected, onOpen }: RailItemProps)
   )
 }
 
-function RailSkeleton() {
+function RailSkeleton({ index = 0 }: { index?: number }) {
+  const delay = { animationDelay: `${(index % 10) * 120}ms` }
   return (
     <div className="shrink-0 w-[150px] sm:w-[170px] md:w-[190px]">
-      <div className="aspect-[2/3] rounded-xl bg-surface-secondary ring-1 ring-border-subtle animate-pulse" />
+      <div className="aspect-[2/3] rounded-xl bg-surface-secondary ring-1 ring-border-subtle animate-pulse" style={delay} />
       <div className="mt-7 pl-1 space-y-2">
-        <div className="h-3 w-4/5 rounded bg-surface-secondary animate-pulse" />
-        <div className="h-2 w-1/3 rounded bg-surface-secondary animate-pulse" />
+        <div className="h-3 w-4/5 rounded bg-surface-secondary animate-pulse" style={delay} />
+        <div className="h-2 w-1/3 rounded bg-surface-secondary animate-pulse" style={delay} />
       </div>
     </div>
   )
