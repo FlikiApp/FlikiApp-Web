@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'framer-motion'
 import type { ReactNode } from 'react'
 
 interface TiltProps {
@@ -23,6 +23,7 @@ export default function Tilt({
   lift = 0,
   glare = false,
 }: TiltProps) {
+  const prefersReducedMotion = useReducedMotion()
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const spring = { stiffness: 180, damping: 22, mass: 0.5 }
@@ -35,6 +36,10 @@ export default function Tilt({
     () =>
       `radial-gradient(40% 40% at ${glareX.get()} ${glareY.get()}, rgba(255,210,170,0.22) 0%, rgba(255,210,170,0) 60%)`,
   )
+
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>
+  }
 
   return (
     <motion.div
