@@ -32,7 +32,7 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`group relative text-sm transition-colors duration-300 ${
+                  className={`group relative text-sm transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary ${
                     active ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'
                   }`}
                 >
