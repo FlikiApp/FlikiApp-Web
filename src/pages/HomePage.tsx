@@ -116,9 +116,9 @@ export default function HomePage() {
 
             {/* Phone — scroll-driven lean and zoom */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
               className="flex justify-center lg:justify-end"
               style={{ perspective: 1400 }}
             >
