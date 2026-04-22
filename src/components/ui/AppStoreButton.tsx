@@ -10,7 +10,7 @@ export default function AppStoreButton({ className = '' }: AppStoreButtonProps) 
       href={APP_STORE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl font-medium text-base text-text-primary overflow-hidden transition-all duration-300 ease-out hover:-translate-y-0.5 ${className}`}
+      className={`group relative inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl font-medium text-base text-text-primary overflow-hidden transition-all duration-300 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary ${className}`}
       style={{
         backgroundImage:
           'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%)',
