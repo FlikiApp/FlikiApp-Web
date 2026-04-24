@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
 import FlikiLogo from '../icons/FlikiLogo'
 import { NAV_LINKS, APP_STORE_URL } from '../../lib/constants'
 
@@ -16,6 +16,9 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const { scrollYProgress } = useScroll()
+  const progress = useSpring(scrollYProgress, { stiffness: 220, damping: 32, mass: 0.4 })
 
   const glass = scrolled || mobileOpen
 
@@ -98,6 +101,17 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+
+      {/* Scroll progress bar */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-0 right-0 h-px origin-left"
+        style={{
+          scaleX: progress,
+          background:
+            'linear-gradient(90deg, rgba(242,106,58,0) 0%, #F26A3A 30%, #F5A623 70%, rgba(245,166,35,0) 100%)',
+        }}
+      />
 
       {/* Mobile overlay */}
       <AnimatePresence>
