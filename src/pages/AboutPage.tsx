@@ -142,7 +142,7 @@ export default function AboutPage() {
                     {member.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-base font-semibold transition-colors duration-300 group-hover:text-accent">{member.name}</h3>
+                <h3 className="text-base font-semibold tracking-tight transition-colors duration-300 group-hover:text-accent">{member.name}</h3>
                 <p className="text-accent text-sm mb-3">{member.role}</p>
                 <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
               </div>
