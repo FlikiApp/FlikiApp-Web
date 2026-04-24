@@ -175,6 +175,7 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
   const isWinner = winner === side
   const isLoser = winner !== null && winner !== side
   const fromX = side === 'a' ? -48 : 48
+  const [loaded, setLoaded] = useState(false)
 
   return (
     <motion.div
@@ -203,11 +204,23 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
             }`}
           >
             {movie.posterUrl && (
-              <img
-                src={movie.posterUrl}
-                alt={movie.title}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-              />
+              <>
+                <div
+                  aria-hidden
+                  className={`absolute inset-0 transition-opacity duration-500 ${loaded ? 'opacity-0' : 'opacity-100'}`}
+                  style={{
+                    background:
+                      'linear-gradient(135deg, #1a1a20 0%, #121216 50%, #17171c 100%)',
+                  }}
+                />
+                <img
+                  src={movie.posterUrl}
+                  alt={movie.title}
+                  onLoad={() => setLoaded(true)}
+                  className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                  style={{ transition: 'opacity 500ms ease-out, transform 700ms ease-out' }}
+                />
+              </>
             )}
 
             {/* Top/bottom gradient for legibility */}
