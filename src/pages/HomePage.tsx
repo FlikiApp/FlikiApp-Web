@@ -4,6 +4,7 @@ import Seo from '../components/Seo'
 import StructuredData from '../components/StructuredData'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import SectionKicker from '../components/ui/SectionKicker'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
@@ -148,7 +149,7 @@ export default function HomePage() {
       {/* How It Works */}
       <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">How It Works</p>
+          <SectionKicker>How It Works</SectionKicker>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-16">
             Three steps to your{' '}
             <GradientText>definitive ranking</GradientText>
@@ -183,7 +184,7 @@ export default function HomePage() {
       {/* Feature Highlights */}
       <SectionWrapper>
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Features</p>
+          <SectionKicker>Features</SectionKicker>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-16">
             Everything you need to{' '}
             <GradientText>rank</GradientText>
