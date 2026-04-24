@@ -140,7 +140,7 @@ function FAQItem({ question, answer, index, open, onToggle }: FAQItemProps) {
           type="button"
           onClick={onToggle}
           aria-expanded={open}
-          className="group w-full py-5 flex items-center justify-between gap-4 text-left"
+          className="group w-full py-5 flex items-center justify-between gap-4 text-left rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary"
         >
           <h3
             className={`text-base font-semibold transition-colors duration-300 ${
