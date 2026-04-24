@@ -10,7 +10,7 @@ import {
 export default function Footer() {
   return (
     <footer className="border-t border-border-subtle">
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
+      <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           {/* Brand */}
           <div>
