@@ -25,10 +25,24 @@ export default function PhoneMockup({
       {/* Warm ambient bloom behind the phone */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 blur-3xl opacity-70"
+        className="absolute inset-0 -z-10 blur-3xl opacity-80"
         style={{
           background:
-            'radial-gradient(closest-side, rgba(242,106,58,0.35), rgba(245,166,35,0.12) 55%, rgba(0,0,0,0) 75%)',
+            'radial-gradient(closest-side, rgba(242,106,58,0.42), rgba(245,166,35,0.14) 55%, rgba(0,0,0,0) 75%)',
+        }}
+      />
+
+      {/* Floor shadow — soft elliptical pool beneath the phone to ground it */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 -translate-x-1/2 -z-10"
+        style={{
+          bottom: '-28px',
+          width: '220px',
+          height: '40px',
+          filter: 'blur(24px)',
+          background:
+            'radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 70%)',
         }}
       />
 
