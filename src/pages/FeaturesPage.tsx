@@ -56,7 +56,7 @@ export default function FeaturesPage() {
 
       {/* Scroll-story: sticky phone on desktop, inline phones on mobile */}
       <section className="border-t border-border-subtle">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
             <div>
               {DETAILED_FEATURES.map((feature, i) => (
@@ -84,7 +84,7 @@ export default function FeaturesPage() {
 
       {/* CTA */}
       <section className="py-32 md:py-40 border-t border-border-subtle">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
               Experience every <GradientText>feature</GradientText>
