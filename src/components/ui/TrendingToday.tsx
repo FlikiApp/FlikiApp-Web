@@ -119,6 +119,7 @@ interface RailItemProps {
 function RailItem({ movie, index, instance, isSelected, onOpen }: RailItemProps) {
   const rank = String(index + 1).padStart(2, '0')
   const dwellTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [loaded, setLoaded] = useState(false)
 
   const armDwell = () => {
     clearDwell()
@@ -155,12 +156,24 @@ function RailItem({ movie, index, instance, isSelected, onOpen }: RailItemProps)
           style={{ visibility: isSelected ? 'hidden' : 'visible' }}
         >
           {movie.posterUrl ? (
-            <img
-              src={movie.posterUrl}
-              alt={movie.title}
-              loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-            />
+            <>
+              <div
+                aria-hidden
+                className={`absolute inset-0 transition-opacity duration-500 ${loaded ? 'opacity-0' : 'opacity-100'}`}
+                style={{
+                  background:
+                    'linear-gradient(135deg, #1a1a20 0%, #121216 50%, #17171c 100%)',
+                }}
+              />
+              <img
+                src={movie.posterUrl}
+                alt={movie.title}
+                loading="lazy"
+                onLoad={() => setLoaded(true)}
+                className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06] ${loaded ? 'opacity-100' : 'opacity-0'}`}
+                style={{ transition: 'opacity 500ms ease-out, transform 700ms ease-out' }}
+              />
+            </>
           ) : (
             <div className="w-full h-full bg-surface-secondary flex items-center justify-center">
               <span className="text-text-muted text-xs">No poster</span>
