@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { LayoutGroup, motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
+import SectionKicker from './SectionKicker'
 import GradientText from './GradientText'
 import TrailerModal from './TrailerModal'
 import { fetchTrendingMovies, hasTmdbKey, type TrendingMovie } from '../../lib/tmdb'
@@ -67,9 +68,7 @@ export default function TrendingToday() {
           <AnimatedSection>
             <div className="flex items-end justify-between gap-6 flex-wrap mb-12">
               <div>
-                <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">
-                  Trending Today
-                </p>
+                <SectionKicker>Trending Today</SectionKicker>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
                   The top 10 right <GradientText>now</GradientText>
                 </h2>
