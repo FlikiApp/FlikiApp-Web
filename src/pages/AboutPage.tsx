@@ -165,7 +165,7 @@ export default function AboutPage() {
             <AnimatedSection key={value.title} delay={i * 0.08}>
               <div className="group relative pt-6 h-full">
                 <div className="absolute top-0 left-0 right-0 h-px bg-border-subtle transition-colors duration-300 group-hover:bg-accent/60" />
-                <h3 className="text-base font-semibold mb-2 transition-colors duration-300 group-hover:text-accent">{value.title}</h3>
+                <h3 className="text-base font-semibold tracking-tight mb-3 transition-colors duration-300 group-hover:text-accent">{value.title}</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">{value.description}</p>
               </div>
             </AnimatedSection>
