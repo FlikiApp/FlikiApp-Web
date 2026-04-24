@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import SectionKicker from '../components/ui/SectionKicker'
 import GradientText from '../components/ui/GradientText'
 import AppStoreButton from '../components/ui/AppStoreButton'
 import CountUp from '../components/ui/CountUp'
@@ -26,7 +27,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection direction="left">
             <div>
-              <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">About</p>
+              <SectionKicker>About</SectionKicker>
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
                 We believe star ratings are{' '}
                 <GradientText>broken</GradientText>
@@ -51,7 +52,7 @@ export default function AboutPage() {
       <SectionWrapper className="border-t border-border-subtle">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <AnimatedSection direction="left">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Our Story</p>
+            <SectionKicker>Our Story</SectionKicker>
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p>
                 Fliki started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
@@ -124,7 +125,7 @@ export default function AboutPage() {
       {/* Team */}
       <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Team</p>
+          <SectionKicker>Team</SectionKicker>
           <h2 className="text-3xl font-bold tracking-tight mb-14">
             The people behind <GradientText>Fliki</GradientText>
           </h2>
@@ -154,7 +155,7 @@ export default function AboutPage() {
       {/* Values */}
       <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Values</p>
+          <SectionKicker>Values</SectionKicker>
           <h2 className="text-3xl font-bold tracking-tight mb-14">
             What we <GradientText>stand for</GradientText>
           </h2>
