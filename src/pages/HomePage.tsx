@@ -158,11 +158,11 @@ export default function HomePage() {
         <div className="grid md:grid-cols-3 gap-12">
           {HOW_IT_WORKS_STEPS.map((step, i) => (
             <AnimatedSection key={step.title} delay={i * 0.1}>
-              <div className="relative pt-8">
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent/60 via-border-subtle to-transparent" />
+              <div className="group relative pt-8">
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-accent/60 via-border-subtle to-transparent transition-[background-image] duration-500 group-hover:from-accent" />
                 <span
                   aria-hidden
-                  className="font-display text-7xl leading-none tracking-tight bg-clip-text text-transparent block mb-6"
+                  className="font-display text-7xl leading-none tracking-tight bg-clip-text text-transparent block mb-6 transition-transform duration-500 ease-out group-hover:-translate-y-1"
                   style={{
                     backgroundImage:
                       'linear-gradient(180deg, rgba(242,106,58,0.9) 0%, rgba(245,166,35,0.35) 70%, rgba(245,166,35,0) 100%)',
