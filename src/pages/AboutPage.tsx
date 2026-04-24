@@ -175,7 +175,7 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section className="py-32 md:py-40 border-t border-border-subtle">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
           <AnimatedSection>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
               Join the <GradientText>community</GradientText>
