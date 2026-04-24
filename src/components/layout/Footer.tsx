@@ -53,7 +53,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Fliki on Instagram"
-            className="text-text-secondary hover:text-text-primary transition-colors"
+            className="text-text-secondary hover:text-text-primary transition-colors rounded-md p-1 -m-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary"
           >
             <Instagram className="w-5 h-5" />
           </a>
