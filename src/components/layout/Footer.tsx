@@ -26,7 +26,7 @@ export default function Footer() {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
               >
                 {link.label}
               </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                className="text-sm text-text-secondary hover:text-text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
               >
                 {link.label}
               </Link>
