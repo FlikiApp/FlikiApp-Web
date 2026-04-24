@@ -68,7 +68,7 @@ export default function SupportPage() {
                 <p className="text-text-secondary text-sm leading-relaxed mb-4">{item.description}</p>
                 <a
                   href={`mailto:${item.email}`}
-                  className="relative text-accent text-sm font-medium inline-block after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                  className="relative text-accent text-sm font-medium inline-block rounded-sm after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
                 >
                   {item.email}
                 </a>
