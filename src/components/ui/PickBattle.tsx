@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
+import SectionKicker from './SectionKicker'
 import GradientText from './GradientText'
 import Tilt from './Tilt'
 import { fetchPopularMovies, hasTmdbKey, type TrendingMovie } from '../../lib/tmdb'
@@ -97,9 +98,7 @@ export default function PickBattle() {
       <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <AnimatedSection>
           <div className="text-center mb-14">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">
-              Try it yourself
-            </p>
+            <SectionKicker align="center">Try it yourself</SectionKicker>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3">
               Which do you <GradientText>prefer</GradientText>?
             </h2>
