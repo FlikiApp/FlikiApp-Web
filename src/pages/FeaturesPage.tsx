@@ -4,6 +4,7 @@ import { Check } from 'lucide-react'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import SectionKicker from '../components/ui/SectionKicker'
 import GradientText from '../components/ui/GradientText'
 import PhoneMockup from '../components/ui/PhoneMockup'
 import AppStoreButton from '../components/ui/AppStoreButton'
@@ -43,7 +44,7 @@ export default function FeaturesPage() {
       <SectionWrapper>
         <AnimatedSection>
           <div className="max-w-2xl">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Features</p>
+            <SectionKicker>Features</SectionKicker>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-5">
               Built for <GradientText>cinephiles</GradientText>
             </h1>
