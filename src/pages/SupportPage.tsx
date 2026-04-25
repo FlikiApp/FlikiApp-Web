@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import SectionKicker from '../components/ui/SectionKicker'
 import GradientText from '../components/ui/GradientText'
 import { SUPPORT_FAQS } from '../lib/constants'
 
@@ -23,7 +24,7 @@ export default function SupportPage() {
       <SectionWrapper>
         <AnimatedSection>
           <div className="max-w-2xl">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Support</p>
+            <SectionKicker>Support</SectionKicker>
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
               How can we <GradientText>help</GradientText>?
             </h1>
@@ -37,7 +38,7 @@ export default function SupportPage() {
       {/* Contact */}
       <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Contact Us</p>
+          <SectionKicker>Contact Us</SectionKicker>
           <h2 className="text-3xl font-bold tracking-tight mb-14">
             Get in <GradientText>touch</GradientText>
           </h2>
@@ -81,7 +82,7 @@ export default function SupportPage() {
       {/* FAQ */}
       <SectionWrapper className="border-t border-border-subtle">
         <AnimatedSection>
-          <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">FAQ</p>
+          <SectionKicker>FAQ</SectionKicker>
           <h2 className="text-3xl font-bold tracking-tight mb-14">
             Frequently asked <GradientText>questions</GradientText>
           </h2>
