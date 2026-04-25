@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -11,6 +12,7 @@ import { TEAM_MEMBERS, VALUES } from '../lib/constants'
 import memeImage from '../components/screenshots/meme.png'
 
 export default function AboutPage() {
+  const [memeLoaded, setMemeLoaded] = useState(false)
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -39,11 +41,23 @@ export default function AboutPage() {
           </AnimatedSection>
 
           <AnimatedSection direction="right">
-            <img
-              src={memeImage}
-              alt="Fake cinephile vs true cinephile meme"
-              className="rounded-2xl w-full"
-            />
+            <div className="relative rounded-2xl overflow-hidden">
+              <div
+                aria-hidden
+                className={`absolute inset-0 transition-opacity duration-500 ${memeLoaded ? 'opacity-0' : 'opacity-100'}`}
+                style={{
+                  background:
+                    'linear-gradient(135deg, #1a1a20 0%, #121216 50%, #17171c 100%)',
+                  aspectRatio: '1 / 1',
+                }}
+              />
+              <img
+                src={memeImage}
+                alt="Fake cinephile vs true cinephile meme"
+                onLoad={() => setMemeLoaded(true)}
+                className={`w-full transition-opacity duration-500 ${memeLoaded ? 'opacity-100' : 'opacity-0'}`}
+              />
+            </div>
           </AnimatedSection>
         </div>
       </SectionWrapper>
