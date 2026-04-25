@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
 import AnimatedSection from '../components/ui/AnimatedSection'
+import SectionKicker from '../components/ui/SectionKicker'
 
 export default function TermsPage() {
   return (
@@ -18,7 +19,7 @@ export default function TermsPage() {
       <SectionWrapper>
         <AnimatedSection>
           <div className="max-w-2xl mx-auto">
-            <p className="text-text-muted text-xs font-medium uppercase tracking-widest mb-4">Legal</p>
+            <SectionKicker>Legal</SectionKicker>
             <h1 className="text-4xl font-bold tracking-tight mb-2">
               Terms of Service
             </h1>
