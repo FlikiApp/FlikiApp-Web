@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useMemo } from 'react'
 
 interface DustMotesProps {
@@ -26,6 +26,7 @@ function seeded(seed: number) {
 }
 
 export default function DustMotes({ count = 24, className = '' }: DustMotesProps) {
+  const prefersReducedMotion = useReducedMotion()
   const motes = useMemo<Mote[]>(() => {
     const rand = seeded(count * 31)
     return Array.from({ length: count }, () => ({
@@ -38,6 +39,8 @@ export default function DustMotes({ count = 24, className = '' }: DustMotesProps
       opacity: 0.12 + rand() * 0.22,
     }))
   }, [count])
+
+  if (prefersReducedMotion) return null
 
   return (
     <div aria-hidden className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}>
