@@ -66,9 +66,31 @@ export default function PickBattle() {
     return result
   }, [movies, seed])
 
+  const ready = Boolean(movies && pairs.length > 0)
+
+  // Arrow keys pick when nothing else has focus
+  useEffect(() => {
+    if (!ready) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return
+      const target = e.target as HTMLElement | null
+      if (target && (target.matches('input, textarea, select, [contenteditable]') || target.isContentEditable)) return
+      if (winner) return
+      e.preventDefault()
+      const side: PickSide = e.key === 'ArrowLeft' ? 'a' : 'b'
+      setWinner(side)
+      setMatchups((n) => n + 1)
+      window.setTimeout(() => {
+        setWinner(null)
+        setPairIndex((i) => i + 1)
+      }, 900)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [ready, winner])
+
   if (!keyPresent || failed) return null
 
-  const ready = movies && pairs.length > 0
   const pair = ready ? pairs[pairIndex % pairs.length] : null
   const a = pair ? movies![pair[0]] : null
   const b = pair ? movies![pair[1]] : null
