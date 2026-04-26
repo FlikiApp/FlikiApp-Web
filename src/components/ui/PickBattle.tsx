@@ -215,6 +215,8 @@ function BattleCard({ movie, side, winner, onPick }: BattleCardProps) {
                 <img
                   src={movie.posterUrl}
                   alt={movie.title}
+                  loading="lazy"
+                  decoding="async"
                   onLoad={() => setLoaded(true)}
                   className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] ${loaded ? 'opacity-100' : 'opacity-0'}`}
                   style={{ transition: 'opacity 500ms ease-out, transform 700ms ease-out' }}
