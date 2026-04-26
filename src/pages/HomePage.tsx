@@ -141,7 +141,7 @@ export default function HomePage() {
                 }}
                 className="will-change-transform"
               >
-                <PhoneMockup screenshot={homeScreenshot} />
+                <PhoneMockup screenshot={homeScreenshot} priority />
               </motion.div>
             </motion.div>
           </div>

@@ -8,6 +8,8 @@ interface PhoneMockupProps {
   screenshots?: (string | null)[]
   activeIndex?: number
   comingSoon?: boolean
+  /** Eagerly load and prioritize the screenshot — use for above-the-fold (LCP) instances. */
+  priority?: boolean
 }
 
 export default function PhoneMockup({
@@ -16,6 +18,7 @@ export default function PhoneMockup({
   screenshots,
   activeIndex = 0,
   comingSoon,
+  priority = false,
 }: PhoneMockupProps) {
   const hasStack = screenshots && screenshots.length > 0
   const hasImage = hasStack || Boolean(screenshot)
@@ -108,6 +111,9 @@ export default function PhoneMockup({
               <img
                 src={screenshot}
                 alt="App screenshot"
+                loading={priority ? 'eager' : 'lazy'}
+                fetchPriority={priority ? 'high' : 'auto'}
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             ) : comingSoon ? (
