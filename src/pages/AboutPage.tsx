@@ -67,6 +67,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           <AnimatedSection direction="left">
             <SectionKicker>Our Story</SectionKicker>
+            <h2 className="sr-only">Our Story</h2>
             <div className="space-y-5 text-text-secondary leading-relaxed">
               <p>
                 Fliki started with a late-night argument: "Is The Dark Knight better than Inception?" Star ratings said they were equal. We knew they weren't — at least not for us.
