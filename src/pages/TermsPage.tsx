@@ -78,7 +78,14 @@ export default function TermsPage() {
               <div>
                 <h2 className="text-lg font-semibold text-text-primary mb-3">8. Contact</h2>
                 <p>
-                  For questions about these terms, contact us at legal@flikiapp.com.
+                  For questions about these terms, contact us at{' '}
+                  <a
+                    href="mailto:legal@flikiapp.com"
+                    className="relative text-accent inline-block rounded-sm after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
+                  >
+                    legal@flikiapp.com
+                  </a>
+                  .
                 </p>
               </div>
             </div>
