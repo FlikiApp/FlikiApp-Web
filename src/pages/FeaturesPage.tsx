@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import Seo from '../components/Seo'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -28,6 +28,37 @@ const FEATURE_SCREENSHOTS: (string | null)[] = [
 
 export default function FeaturesPage() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const blockRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Centralized scroll-spy: pick the block whose center is closest to the
+  // sticky phone's center (~45% from the top of the viewport). This stays in
+  // sync when scrolling up and is more accurate than per-block intersection.
+  useEffect(() => {
+    const computeActive = () => {
+      const focal = window.innerHeight * 0.45
+      let best = 0
+      let bestDist = Infinity
+      for (let i = 0; i < blockRefs.current.length; i++) {
+        const el = blockRefs.current[i]
+        if (!el) continue
+        const rect = el.getBoundingClientRect()
+        const center = rect.top + rect.height / 2
+        const dist = Math.abs(center - focal)
+        if (dist < bestDist) {
+          bestDist = dist
+          best = i
+        }
+      }
+      setActiveIndex((prev) => (prev === best ? prev : best))
+    }
+    computeActive()
+    window.addEventListener('scroll', computeActive, { passive: true })
+    window.addEventListener('resize', computeActive)
+    return () => {
+      window.removeEventListener('scroll', computeActive)
+      window.removeEventListener('resize', computeActive)
+    }
+  }, [])
 
   return (
     <motion.div
@@ -64,8 +95,9 @@ export default function FeaturesPage() {
                 <FeatureBlock
                   key={feature.title}
                   feature={feature}
-                  index={i}
-                  onInView={setActiveIndex}
+                  registerRef={(el) => {
+                    blockRefs.current[i] = el
+                  }}
                   mobileScreenshot={FEATURE_SCREENSHOTS[i]}
                 />
               ))}
@@ -115,23 +147,13 @@ export default function FeaturesPage() {
 
 interface FeatureBlockProps {
   feature: (typeof DETAILED_FEATURES)[number]
-  index: number
-  onInView: (index: number) => void
+  registerRef: (el: HTMLDivElement | null) => void
   mobileScreenshot: string | null
 }
 
-function FeatureBlock({ feature, index, onInView, mobileScreenshot }: FeatureBlockProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  // Fire as soon as any part of the block enters the middle 20% of the viewport,
-  // so the active feature switches near the reader's focal point.
-  const inView = useInView(ref, { margin: '-45% 0px -45% 0px' })
-
-  useEffect(() => {
-    if (inView) onInView(index)
-  }, [inView, index, onInView])
-
+function FeatureBlock({ feature, registerRef, mobileScreenshot }: FeatureBlockProps) {
   return (
-    <div ref={ref} className="py-20 lg:py-32 first:pt-12 lg:first:pt-24">
+    <div ref={registerRef} className="py-20 lg:py-32 first:pt-12 lg:first:pt-24">
       <AnimatedSection>
         <span className="text-xs font-medium text-accent uppercase tracking-widest">
           {feature.tagline}
