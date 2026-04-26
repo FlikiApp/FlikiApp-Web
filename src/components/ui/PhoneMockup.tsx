@@ -86,6 +86,8 @@ export default function PhoneMockup({
                       src={src}
                       alt=""
                       aria-hidden={i !== activeIndex}
+                      loading="lazy"
+                      decoding="async"
                       initial={false}
                       animate={{ opacity: i === activeIndex ? 1 : 0 }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
