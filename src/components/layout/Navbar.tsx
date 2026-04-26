@@ -51,6 +51,7 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
+                  aria-current={active ? 'page' : undefined}
                   className={`group relative text-sm transition-colors duration-300 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary ${
                     active ? 'text-text-primary font-medium' : 'text-text-secondary hover:text-text-primary'
                   }`}
@@ -126,20 +127,24 @@ export default function Navbar() {
             className="md:hidden absolute top-full left-0 right-0 bg-surface-primary/95 backdrop-blur-xl border-b border-border-subtle"
           >
             <div className="flex flex-col items-center gap-6 py-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setMobileOpen(false)}
-                  className={`text-base transition-colors ${
-                    pathname === link.path
-                      ? 'text-text-primary font-medium'
-                      : 'text-text-secondary hover:text-text-primary'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const active = pathname === link.path
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setMobileOpen(false)}
+                    aria-current={active ? 'page' : undefined}
+                    className={`text-base transition-colors ${
+                      active
+                        ? 'text-text-primary font-medium'
+                        : 'text-text-secondary hover:text-text-primary'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              })}
               <a
                 href={APP_STORE_URL}
                 target="_blank"
