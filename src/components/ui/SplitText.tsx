@@ -1,4 +1,4 @@
-import { motion, type HTMLMotionProps } from 'framer-motion'
+import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
 import { Children, isValidElement, cloneElement, type ReactNode } from 'react'
 
 interface SplitTextProps extends Omit<HTMLMotionProps<'span'>, 'children'> {
@@ -36,6 +36,10 @@ export default function SplitText({
   duration = 0.7,
   ...rest
 }: SplitTextProps) {
+  const prefersReducedMotion = useReducedMotion()
+  if (prefersReducedMotion) {
+    return <span {...(rest as React.HTMLAttributes<HTMLSpanElement>)}>{children}</span>
+  }
   return (
     <motion.span
       variants={container(delay, stagger)}
