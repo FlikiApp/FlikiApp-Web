@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import FlikiLogo from '../icons/FlikiLogo'
 import { NAV_LINKS, APP_STORE_URL } from '../../lib/constants'
 
+const MOBILE_DRAWER_ID = 'mobile-nav-drawer'
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const drawerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -16,6 +20,21 @@ export default function Navbar() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Esc closes the drawer; on open focus the first link, on close restore focus to the hamburger
+  useEffect(() => {
+    if (!mobileOpen) return
+    const firstLink = drawerRef.current?.querySelector<HTMLElement>('a, button')
+    firstLink?.focus()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      window.removeEventListener('keydown', onKey)
+      hamburgerRef.current?.focus()
+    }
+  }, [mobileOpen])
 
   const prefersReducedMotion = useReducedMotion()
   const { scrollYProgress } = useScroll()
@@ -96,9 +115,12 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
+            ref={hamburgerRef}
             className="md:hidden text-text-primary p-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-primary"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            aria-controls={MOBILE_DRAWER_ID}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -120,6 +142,8 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            ref={drawerRef}
+            id={MOBILE_DRAWER_ID}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
