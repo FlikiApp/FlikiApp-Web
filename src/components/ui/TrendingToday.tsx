@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { LayoutGroup, motion } from 'framer-motion'
+import { LayoutGroup, motion, useReducedMotion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import AnimatedSection from './AnimatedSection'
 import SectionKicker from './SectionKicker'
@@ -19,6 +19,7 @@ export default function TrendingToday() {
   const [failed, setFailed] = useState(false)
   const [selected, setSelected] = useState<Selection | null>(null)
   const keyPresent = hasTmdbKey()
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     if (!keyPresent) return
@@ -55,14 +56,16 @@ export default function TrendingToday() {
               'radial-gradient(60% 60% at 50% 40%, rgba(242,106,58,0.10) 0%, rgba(242,106,58,0) 70%)',
           }}
         />
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute -z-10 w-[600px] h-[600px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(closest-side, rgba(245,166,35,0.08), transparent)' }}
-          initial={{ x: '-10%', y: '20%' }}
-          animate={{ x: ['-10%', '20%', '-10%'], y: ['20%', '10%', '20%'] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-        />
+        {!prefersReducedMotion && (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute -z-10 w-[600px] h-[600px] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(closest-side, rgba(245,166,35,0.08), transparent)' }}
+            initial={{ x: '-10%', y: '20%' }}
+            animate={{ x: ['-10%', '20%', '-10%'], y: ['20%', '10%', '20%'] }}
+            transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        )}
 
         <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
           <AnimatedSection>
