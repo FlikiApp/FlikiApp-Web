@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useLocation } from 'react-router'
 import { Instagram } from 'lucide-react'
 import FlikiLogo from '../icons/FlikiLogo'
 import {
@@ -8,6 +8,7 @@ import {
 } from '../../lib/constants'
 
 export default function Footer() {
+  const { pathname } = useLocation()
   return (
     <footer className="border-t border-border-subtle">
       <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
@@ -22,19 +23,11 @@ export default function Footer() {
 
           {/* Links */}
           <div className="flex gap-8">
-            {FOOTER_PRODUCT_LINKS.map((link) => (
+            {[...FOOTER_PRODUCT_LINKS, ...FOOTER_LEGAL_LINKS].map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="text-sm text-text-secondary hover:text-text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
-            {FOOTER_LEGAL_LINKS.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
+                aria-current={pathname === link.path ? 'page' : undefined}
                 className="text-sm text-text-secondary hover:text-text-primary transition-colors rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
               >
                 {link.label}
