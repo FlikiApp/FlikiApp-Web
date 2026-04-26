@@ -59,6 +59,10 @@ body::before {
   background-size: 160px 160px;
 }
 
+@media (prefers-reduced-transparency: reduce) {
+  body::before { display: none; }
+}
+
 /* Warm radial bloom used behind hero phone and CTA sections */
 .cinema-glow {
   background-image:
