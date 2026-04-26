@@ -65,6 +65,9 @@ export default function TrailerModal({ selection, sharedLayoutId, onClose }: Tra
       {movie && (
         <motion.div
           key="backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="trailer-modal-title"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -152,7 +155,7 @@ export default function TrailerModal({ selection, sharedLayoutId, onClose }: Tra
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-start justify-between gap-4 mb-2 flex-wrap">
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight">{movie.title}</h3>
+                <h3 id="trailer-modal-title" className="text-xl sm:text-2xl font-bold tracking-tight">{movie.title}</h3>
                 <div className="flex items-center gap-3 text-sm text-text-secondary">
                   {movie.year && <span>{movie.year}</span>}
                   {movie.rating > 0 && (
