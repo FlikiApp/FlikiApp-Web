@@ -28,26 +28,22 @@ const FEATURE_SCREENSHOTS: (string | null)[] = [
 
 export default function FeaturesPage() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const blockRefs = useRef<(HTMLDivElement | null)[]>([])
+  const headingRefs = useRef<(HTMLHeadingElement | null)[]>([])
 
-  // Centralized scroll-spy: pick the block whose center is closest to the
-  // sticky phone's center (~45% from the top of the viewport). This stays in
-  // sync when scrolling up and is more accurate than per-block intersection.
+  // Centralized scroll-spy: anchor on each block's heading element. Active is
+  // the last heading whose top has crossed the reading focal line (~33% from
+  // the top of the viewport). This fires precisely when the user's eye lands
+  // on the heading, in both scroll directions.
   useEffect(() => {
     const computeActive = () => {
-      const focal = window.innerHeight * 0.45
+      const focal = window.innerHeight * 0.33
       let best = 0
-      let bestDist = Infinity
-      for (let i = 0; i < blockRefs.current.length; i++) {
-        const el = blockRefs.current[i]
+      for (let i = 0; i < headingRefs.current.length; i++) {
+        const el = headingRefs.current[i]
         if (!el) continue
-        const rect = el.getBoundingClientRect()
-        const center = rect.top + rect.height / 2
-        const dist = Math.abs(center - focal)
-        if (dist < bestDist) {
-          bestDist = dist
-          best = i
-        }
+        const top = el.getBoundingClientRect().top
+        if (top <= focal) best = i
+        else break
       }
       setActiveIndex((prev) => (prev === best ? prev : best))
     }
@@ -95,8 +91,8 @@ export default function FeaturesPage() {
                 <FeatureBlock
                   key={feature.title}
                   feature={feature}
-                  registerRef={(el) => {
-                    blockRefs.current[i] = el
+                  registerHeadingRef={(el) => {
+                    headingRefs.current[i] = el
                   }}
                   mobileScreenshot={FEATURE_SCREENSHOTS[i]}
                 />
@@ -147,18 +143,18 @@ export default function FeaturesPage() {
 
 interface FeatureBlockProps {
   feature: (typeof DETAILED_FEATURES)[number]
-  registerRef: (el: HTMLDivElement | null) => void
+  registerHeadingRef: (el: HTMLHeadingElement | null) => void
   mobileScreenshot: string | null
 }
 
-function FeatureBlock({ feature, registerRef, mobileScreenshot }: FeatureBlockProps) {
+function FeatureBlock({ feature, registerHeadingRef, mobileScreenshot }: FeatureBlockProps) {
   return (
-    <div ref={registerRef} className="py-20 lg:py-32 first:pt-12 lg:first:pt-24">
+    <div className="py-20 lg:py-32 first:pt-12 lg:first:pt-24">
       <AnimatedSection>
         <span className="text-xs font-medium text-accent uppercase tracking-widest">
           {feature.tagline}
         </span>
-        <h2 className="text-3xl font-bold tracking-tight mt-3 mb-4">{feature.title}</h2>
+        <h2 ref={registerHeadingRef} className="text-3xl font-bold tracking-tight mt-3 mb-4">{feature.title}</h2>
         <p className="text-text-secondary leading-relaxed mb-8">{feature.description}</p>
         <ul className="space-y-3">
           {feature.bullets.map((bullet) => (
