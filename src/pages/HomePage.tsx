@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import Seo from '../components/Seo'
 import StructuredData from '../components/StructuredData'
 import SectionWrapper from '../components/ui/SectionWrapper'
@@ -18,23 +18,31 @@ import { HOW_IT_WORKS_STEPS, FEATURES } from '../lib/constants'
 
 export default function HomePage() {
   const heroRef = useRef<HTMLElement | null>(null)
+  const prefersReducedMotion = useReducedMotion()
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ['start start', 'end start'],
   })
   // Backdrop layers drift at different rates so they feel like
   // parallax planes behind the scrolling content.
-  const glowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
-  const vignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
+  const rawGlowY = useTransform(scrollYProgress, [0, 1], ['0%', '40%'])
+  const rawVignetteY = useTransform(scrollYProgress, [0, 1], ['0%', '15%'])
 
   // Phone leans forward and grows as the hero scrolls past —
   // turns to the right and nearly pops off the screen.
-  const phoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4])
-  const phoneRotateY = useTransform(scrollYProgress, [0, 0.3], [0, 18])
-  const phoneRotateZ = useTransform(scrollYProgress, [0, 0.3], [0, 4])
+  const rawPhoneScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.4])
+  const rawPhoneRotateY = useTransform(scrollYProgress, [0, 0.3], [0, 18])
+  const rawPhoneRotateZ = useTransform(scrollYProgress, [0, 0.3], [0, 4])
   // Shift the phone down as it scales so its top edge stays well
   // below the navbar even at peak scale.
-  const phoneY = useTransform(scrollYProgress, [0, 0.3], [0, 90])
+  const rawPhoneY = useTransform(scrollYProgress, [0, 0.3], [0, 90])
+
+  const glowY = prefersReducedMotion ? '0%' : rawGlowY
+  const vignetteY = prefersReducedMotion ? '0%' : rawVignetteY
+  const phoneScale = prefersReducedMotion ? 1 : rawPhoneScale
+  const phoneRotateY = prefersReducedMotion ? 0 : rawPhoneRotateY
+  const phoneRotateZ = prefersReducedMotion ? 0 : rawPhoneRotateZ
+  const phoneY = prefersReducedMotion ? 0 : rawPhoneY
 
   return (
     <motion.div
