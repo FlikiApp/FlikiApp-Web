@@ -26,6 +26,8 @@ export default function Seo({ title, description, path, image }: SeoProps) {
       <meta property="og:description" content={description} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Fliki" />
+      <meta property="og:locale" content="en_US" />
       <meta property="og:image" content={ogImage} />
 
       <meta name="twitter:card" content="summary_large_image" />
