@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 import { Menu, X } from 'lucide-react'
-import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useSpring, useReducedMotion } from 'framer-motion'
 import FlikiLogo from '../icons/FlikiLogo'
 import { NAV_LINKS, APP_STORE_URL } from '../../lib/constants'
 
@@ -17,8 +17,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const prefersReducedMotion = useReducedMotion()
   const { scrollYProgress } = useScroll()
-  const progress = useSpring(scrollYProgress, { stiffness: 220, damping: 32, mass: 0.4 })
+  const smoothed = useSpring(scrollYProgress, { stiffness: 220, damping: 32, mass: 0.4 })
+  const progress = prefersReducedMotion ? scrollYProgress : smoothed
 
   const glass = scrolled || mobileOpen
 
