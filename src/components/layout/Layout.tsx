@@ -10,6 +10,12 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:px-4 focus:py-2 focus:rounded-md focus:bg-surface-primary focus:text-text-primary focus:ring-2 focus:ring-accent focus:outline-none"
+      >
+        Skip to content
+      </a>
       {/* Solid strip filling the iOS safe-area above the navbar */}
       <div
         aria-hidden
@@ -21,6 +27,7 @@ export default function Layout() {
       />
       <Navbar />
       <main
+        id="main"
         className="flex-1"
         style={{ paddingTop: 'calc(4rem + env(safe-area-inset-top, 0px))' }}
       >
