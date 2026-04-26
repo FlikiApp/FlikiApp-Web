@@ -73,10 +73,22 @@ export default function FeaturesPage() {
 
             <div className="hidden lg:block">
               <div className="sticky top-24 flex justify-center pt-12">
-                <PhoneMockup
-                  screenshots={FEATURE_SCREENSHOTS}
-                  activeIndex={activeIndex}
-                />
+                <div className="relative">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 -z-10"
+                    style={{
+                      background:
+                        'radial-gradient(60% 50% at 50% 45%, rgba(242,106,58,0.18) 0%, rgba(242,106,58,0) 70%)',
+                      transform: 'scale(1.6)',
+                      filter: 'blur(8px)',
+                    }}
+                  />
+                  <PhoneMockup
+                    screenshots={FEATURE_SCREENSHOTS}
+                    activeIndex={activeIndex}
+                  />
+                </div>
               </div>
             </div>
           </div>
