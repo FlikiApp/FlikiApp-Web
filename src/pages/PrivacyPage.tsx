@@ -71,7 +71,14 @@ export default function PrivacyPage() {
               <div>
                 <h2 className="text-lg font-semibold text-text-primary mb-3">7. Contact Us</h2>
                 <p>
-                  If you have questions about this privacy policy, please contact us at privacy@flikiapp.com.
+                  If you have questions about this privacy policy, please contact us at{' '}
+                  <a
+                    href="mailto:privacy@flikiapp.com"
+                    className="relative text-accent inline-block rounded-sm after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all hover:after:w-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-surface-primary"
+                  >
+                    privacy@flikiapp.com
+                  </a>
+                  .
                 </p>
               </div>
             </div>
