@@ -71,3 +71,14 @@ export default defineConfig([
   },
 ])
 ```
+
+## Changelog
+
+<!-- Newest entries on top. Format: `- YYYY-MM-DD: short description` -->
+
+- 2026-04-28: Wrap `TrendingToday` and `PickBattle` on the home page in `ErrorBoundary` so unexpected runtime errors don’t leave blank sections
+- 2026-04-28: Render a friendly fallback in `PickBattle` when the TMDB fetch fails instead of silently rendering nothing
+- 2026-04-28: Render a friendly fallback in `TrendingToday` when the TMDB fetch fails instead of silently rendering nothing
+- 2026-04-28: Add `ErrorBoundary` component that renders a friendly fallback when a section throws
+- 2026-04-28: Lift secondary text contrast (`#A5A4A0` → `#B8B7B3`) to clear WCAG AA more comfortably on dark surfaces
+- 2026-04-28: Add Changelog section to README

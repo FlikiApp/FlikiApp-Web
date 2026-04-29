@@ -10,6 +10,7 @@ import AppStoreButton from '../components/ui/AppStoreButton'
 import FeatureCard from '../components/ui/FeatureCard'
 import DustMotes from '../components/ui/DustMotes'
 import PhoneMockup from '../components/ui/PhoneMockup'
+import ErrorBoundary from '../components/ui/ErrorBoundary'
 import PickBattle from '../components/ui/PickBattle'
 import SplitText from '../components/ui/SplitText'
 import TrendingToday from '../components/ui/TrendingToday'
@@ -149,10 +150,14 @@ export default function HomePage() {
       </section>
 
       {/* Trending Today */}
-      <TrendingToday />
+      <ErrorBoundary label="TrendingToday" fallback={null}>
+        <TrendingToday />
+      </ErrorBoundary>
 
       {/* Interactive pick-battle demo */}
-      <PickBattle />
+      <ErrorBoundary label="PickBattle" fallback={null}>
+        <PickBattle />
+      </ErrorBoundary>
 
       {/* How It Works */}
       <SectionWrapper className="border-t border-border-subtle">
