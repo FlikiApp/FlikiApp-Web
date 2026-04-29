@@ -71,3 +71,9 @@ export default defineConfig([
   },
 ])
 ```
+
+## Changelog
+
+<!-- Newest entries on top. Format: `- YYYY-MM-DD: short description` -->
+
+- 2026-04-28: Add Changelog section to README
