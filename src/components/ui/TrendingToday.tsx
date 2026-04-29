@@ -36,7 +36,26 @@ export default function TrendingToday() {
     }
   }, [keyPresent])
 
-  if (!keyPresent || failed) return null
+  if (!keyPresent) return null
+
+  if (failed) {
+    return (
+      <section
+        role="alert"
+        className="relative border-t border-border-subtle py-24 md:py-32"
+      >
+        <div className="max-w-5xl xl:max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <SectionKicker align="center">Trending Today</SectionKicker>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
+            Couldn’t load <GradientText>trending</GradientText> right now
+          </h2>
+          <p className="text-text-secondary text-sm mt-4">
+            We had trouble reaching TMDB. Please refresh in a moment.
+          </p>
+        </div>
+      </section>
+    )
+  }
 
   const items = movies ?? Array.from({ length: 10 }).map(() => null)
   const loopItems = [...items, ...items]
