@@ -76,4 +76,5 @@ export default defineConfig([
 
 <!-- Newest entries on top. Format: `- YYYY-MM-DD: short description` -->
 
+- 2026-04-28: Lift secondary text contrast (`#A5A4A0` → `#B8B7B3`) to clear WCAG AA more comfortably on dark surfaces
 - 2026-04-28: Add Changelog section to README
