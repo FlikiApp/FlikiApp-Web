@@ -25,3 +25,4 @@ build
 *.sln
 *.sw?
 .vercel
+CLAUDE.md
